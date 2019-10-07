@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="no.ticket.Controller.HovedLayoutController" prefHeight="400.0" prefWidth="600.0">
+
+    <children>
+        <VBox layoutX="322.0" layoutY="1.0" prefHeight="498.0" prefWidth="416.0" spacing="5.0">
+            <children>
+                <Text fx:id="titleLabel" strokeType="OUTSIDE" strokeWidth="0.0">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Text>
+                <Label fx:id="descriptionLabel" text="Decription">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="descriptionTextArea" prefHeight="169.0" prefWidth="307.0" />
+                <Label fx:id="dateLabel" text="Date">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="datePicker" />
+                <Label fx:id="descriptionLabeltime" text="Time">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="timeOfEvent" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
+                <Label fx:id="placeLabel" text="Place">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="placeTextArea" prefHeight="44.0" prefWidth="273.0" />
+                <Label fx:id="capacityLabel" text="Capacity">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="capacityTextArea" prefHeight="44.0" prefWidth="273.0" />
+                <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                    <children>
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#onClickDelete" text="Delete event" />
+                        <Button fx:id="newEvent" mnemonicParsing="false" text="New event" />
+                        <Button fx:id="editEvent" mnemonicParsing="false" text="Edit Event" />
+                        <Button fx:id="logOutBtn" mnemonicParsing="false" text="Log out" />
+                        <Button fx:id="buyTicketBtn" defaultButton="true" mnemonicParsing="false" text="Buy Ticket" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="15.0" top="5.0" />
+            </padding>
+        </VBox>
+        <VBox alignment="CENTER" prefHeight="498.0" prefWidth="322.0">
+            <children>
+                <HBox prefHeight="416.0" prefWidth="433.0">
+                    <children>
+                        <ListView fx:id="eventListView" prefHeight="406.0" prefWidth="389.0" />
+                    </children>
+                    <padding>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+                <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Label text="Sort By" />
+                        <ComboBox fx:id="sortBy" prefWidth="150.0" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" right="5.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+
+</AnchorPane>
