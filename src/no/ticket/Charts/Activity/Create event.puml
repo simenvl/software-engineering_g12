@@ -1,0 +1,7 @@
+@startuml
+(*)  --> "Login as Manager"
+--> "Choose create event"
+--> "input information about event"
+--> "validate information"
+--> "event created"
+@enduml
