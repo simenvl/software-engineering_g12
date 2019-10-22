@@ -14,8 +14,8 @@ else
 --> "type in required info" as t2
 -down-> "check if input is valid" as c2
 if "" then
-  -down->[true] "Create manager account"
+  -->[true] "Create manager account"
 else
-  -down->[false] t2
+  -->[false] t2
 endif
 @enduml
