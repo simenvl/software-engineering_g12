@@ -18,8 +18,6 @@ public class TicketController {
     @FXML
     private Label eventTitle;
     @FXML
-    private ComboBox seat, row, stand;
-    @FXML
     private DatePicker age;
     @FXML
     private TextField txtName;

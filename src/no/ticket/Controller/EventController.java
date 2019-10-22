@@ -27,8 +27,6 @@ public class EventController {
     @FXML
     private TextField txtAge;
     @FXML
-    private TextField txtCapacity;
-    @FXML
     private TextField txtLocation;
     @FXML
     private TextField timeOfEvent;
@@ -51,7 +49,6 @@ public class EventController {
 
         String title = txtTitle.getText();
         String description = txtDescription.getText();
-        int capacity = Integer.parseInt(txtCapacity.getText());
         LocalDate date = datePicker.getValue();
         String place = txtLocation.getText();
         ArrayList<Event> arrayList = DataHandler.getEventList();
@@ -70,7 +67,7 @@ public class EventController {
 
         if (!editNewEvent) {
             int managerID = MainJavaFX.getCurrentPassword();
-            Event newEvent = new Event(description, managerID, title, date, time, agerestrict, place, capacity,price);
+            Event newEvent = new Event(description, managerID, title, date, time, agerestrict, place,price);
             arrayList.add(newEvent);
 
             WriteJson.addToJson(arrayList);

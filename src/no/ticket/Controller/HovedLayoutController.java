@@ -126,12 +126,6 @@ public class HovedLayoutController {
                 } else if (newValue == "Price ascending") {
                     Comparator<Event> comparator = Comparator.comparing(Event::getPrice);
                     FXCollections.sort(listWithEvents, comparator);
-                } else if (newValue == "Capacity descending") {
-                    Comparator<Event> comparator = Comparator.comparingInt(Event::getCapacity);
-                    FXCollections.sort(listWithEvents, comparator.reversed());
-                } else if (newValue == "Capacity ascending") {
-                    Comparator<Event> comparator = Comparator.comparingInt(Event::getCapacity);
-                    FXCollections.sort(listWithEvents, comparator);
                 }
 
 
@@ -200,7 +194,6 @@ public class HovedLayoutController {
         datePicker.setValue(event.getDate());
         timeOfEvent.setText(String.valueOf(event.getTime()));
         placeTextArea.setText(event.getPlace());
-        capacityTextArea.setText(String.valueOf(event.getCapacity()));
     }
 
     public void newEvent(ActionEvent actionEvent) {

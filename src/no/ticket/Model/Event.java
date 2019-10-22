@@ -14,10 +14,9 @@ public class Event {
     private int time;
     private int ageRestrict;
     private String place;
-    private int capacity;
     private int price;
 
-    public Event(String description, int managerId, String title, LocalDate date, int time, int ageRestrict, String place, int capacity, int price) {
+    public Event(String description, int managerId, String title, LocalDate date, int time, int ageRestrict, String place, int price) {
         this.description = description;
         this.managerId = managerId;
         this.title = title;
@@ -25,7 +24,6 @@ public class Event {
         this.time = time;
         this.ageRestrict = ageRestrict;
         this.place = place;
-        this.capacity = capacity;
         this.price = price;
     }
 
@@ -91,14 +89,6 @@ public class Event {
 
     public void setPlace(String place) {
         this.place = place;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
     }
 
     public int getPrice() {
