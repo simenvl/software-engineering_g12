@@ -51,7 +51,7 @@ public class EventController {
 
         String title = txtTitle.getText();
         String description = txtDescription.getText();
-        int capacity = Integer.parseInt(txtCapacity.getText());
+        int capacity = 10; //Integer.parseInt(txtCapacity.getText());
         LocalDate date = datePicker.getValue();
         String place = txtLocation.getText();
         ArrayList<Event> arrayList = DataHandler.getEventList();
