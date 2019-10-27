@@ -70,8 +70,8 @@ public class EventController {
 
         if (!editNewEvent) {
             int managerID = MainJavaFX.getCurrentPassword();
-            Event newEvent = new Event(description, managerID, title, date, time, agerestrict, place, capacity,price);
-            arrayList.add(newEvent);
+            //Event newEvent = new Event(description, managerID, title, date, time, agerestrict, place, capacity,price);
+            //arrayList.add(newEvent);
 
             WriteJson.addToJson(arrayList);
         } else {
