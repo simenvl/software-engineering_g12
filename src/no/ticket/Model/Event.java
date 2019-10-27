@@ -28,7 +28,7 @@ public class Event {
 
     }
 
-    public Event(String title, LocalDate date, int managerId, int agerestrict, String place, int price, String description, int time) {
+    public Event(String title, LocalDate date, int managerId, int agerestrict, String place, int price, String description, int time, int capacity) {
         this.title = title;
         this.date = date;
         this.managerId = managerId;
@@ -37,6 +37,7 @@ public class Event {
         this.price = price;
         this.description = description;
         this.time = time;
+        this.capacity = capacity;
     }
 
     @Override
@@ -129,5 +130,13 @@ public class Event {
 
     public void addParticipants(User newUser) {
         this.participants.add(newUser);
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 }

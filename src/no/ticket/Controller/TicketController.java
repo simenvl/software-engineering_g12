@@ -8,6 +8,7 @@ import no.ticket.Data.DataHandler;
 import no.ticket.Json.WriteJson;
 import no.ticket.MainJavaFX;
 import no.ticket.Model.Event;
+import no.ticket.Model.Person;
 import no.ticket.Model.Ticket;
 import no.ticket.Model.User;
 
@@ -33,6 +34,7 @@ public class TicketController {
 
 
     private Event buyTicketEvent;
+    private int participantNumber;
 
 
     @FXML
@@ -46,6 +48,12 @@ public class TicketController {
                     System.out.println("You are not old enough for this event");
                 } else {
                     System.out.println("Ticket bought");
+                    Ticket newTicket = new Ticket (buyTicketEvent, MainJavaFX.getCurrentUser());
+                    User newUser = new User(MainJavaFX.getCurrentUser(), participantNumber);
+                    buyTicketEvent.addParticipants(newUser);
+
+                    ArrayList<Event> arrayList = DataHandler.getEventList();
+                    WriteJson.addToJson(arrayList);
                     //User newCustomer = new User(name,1000, date, email, phone, position);
 
                     /*
@@ -83,8 +91,19 @@ public class TicketController {
         txtName.setText(MainJavaFX.getCurrentUser().getName());
         txtEmail.setText(MainJavaFX.getCurrentUser().getEmail());
         txtMobile.setText(Integer.toString(MainJavaFX.getCurrentUser().getPhone()));
-        int participantNumber = buyTicketEvent.getParticipants().size() + 1;
-        txtParticipant.setText(Integer.toString(participantNumber));
+        for (User current : buyTicketEvent.getParticipants()){
+            System.out.println(current.getId() + " " + MainJavaFX.getCurrentUser().getId());
+            if (Integer.valueOf(current.getId()).equals(MainJavaFX.getCurrentUser().getId())) {
+                txtParticipant.setText("You're already signed");
+                break;
+            } else {
+                participantNumber = buyTicketEvent.getParticipants().size() + 1;
+                txtParticipant.setText(Integer.toString(participantNumber));
+            }
+        }
+
+
+
 
     }
 

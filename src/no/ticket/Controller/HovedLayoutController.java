@@ -198,6 +198,7 @@ public class HovedLayoutController {
         datePicker.setValue(event.getDate());
         timeOfEvent.setText(String.valueOf(event.getTime()));
         placeTextArea.setText(event.getPlace());
+        capacityTextArea.setText(Integer.toString(event.getCapacity()));
     }
 
     public void newEvent(ActionEvent actionEvent) {
