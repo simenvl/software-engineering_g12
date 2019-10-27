@@ -69,7 +69,7 @@ public class EventController {
         }
 
         if (!editNewEvent) {
-            int managerID = MainJavaFX.getCurrentPassword();
+            int managerID = MainJavaFX.getCurrentUser().getId();
             //Event newEvent = new Event(description, managerID, title, date, time, agerestrict, place, capacity,price);
             //arrayList.add(newEvent);
 

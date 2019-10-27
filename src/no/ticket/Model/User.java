@@ -6,8 +6,8 @@ public class User extends Person{
 
     private String position;
 
-    public User(String name, LocalDate birthDate, String email, int phone, String position) {
-        super(name, birthDate, email, phone);
+    public User(String name,int id, LocalDate birthDate, String email, int phone, String position) {
+        super(name, id, birthDate, email, phone);
         this.position = position;
     }
 

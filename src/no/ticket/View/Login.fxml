@@ -25,7 +25,7 @@
                     <children>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                             <children>
-                                <ComboBox fx:id="txtAdmin" prefWidth="150.0" />
+                                <ComboBox fx:id="comboAdmin" prefWidth="150.0" />
                                 <Button fx:id="adminButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Admin" textAlignment="CENTER" />
                             </children>
                             <HBox.margin>
@@ -34,8 +34,8 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                             <children>
-                                <ComboBox fx:id="txtUser" prefWidth="150.0" />
-                                <Button fx:id="guestButton" mnemonicParsing="false" onAction="#guestButtonClicked" text="Guest" />
+                                <ComboBox fx:id="comboUser" prefWidth="150.0" />
+                                <Button fx:id="userButton" mnemonicParsing="false" onAction="#guestButtonClicked" text="Guest" />
                             </children>
                             <HBox.margin>
                                 <Insets left="16.0" />

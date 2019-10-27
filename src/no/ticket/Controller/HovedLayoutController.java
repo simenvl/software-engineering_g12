@@ -86,14 +86,18 @@ public class HovedLayoutController {
 //
 //            }
 //        }
-        if (MainJavaFX.getCurrentPassword() == 0) {
+        if (!MainJavaFX.getIsUserAdmin()) {
             listWithEvents.addAll(DataHandler.getEventData());
             newEvent.setVisible(false);
             editEvent.setVisible(false);
             btnDelete.setVisible(false);
         }
-        if (MainJavaFX.getCurrentPassword() > 0) {
-            listWithEvents.addAll(DataHandler.getEventData());
+        if (MainJavaFX.getIsUserAdmin()) {
+            for (Event event : DataHandler.getEventData()){
+                if (Integer.valueOf(event.getManagerId()).equals(MainJavaFX.getCurrentUser().getId()))
+                    listWithEvents.add(event);
+            }
+
         }
         eventListView.setItems(listWithEvents);
         sortBy.setItems(sortMethods);
@@ -189,7 +193,7 @@ public class HovedLayoutController {
             public void handle(ActionEvent event) {
                 Stage primaryStage = MainJavaFX.primaryStage;
                 MainJavaFX.getInstance().start(primaryStage);
-                MainJavaFX.setCurrentPassword(0);
+                MainJavaFX.setCurrentPerson(null,false);
             }
         });
     }

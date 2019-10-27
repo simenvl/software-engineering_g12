@@ -10,6 +10,7 @@ import no.ticket.Controller.HovedLayoutController;
 import no.ticket.Controller.TicketController;
 import no.ticket.Model.Event;
 import no.ticket.Model.Manager;
+import no.ticket.Model.Person;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -20,14 +21,13 @@ public class MainJavaFX extends Application {
 
     private static MainJavaFX mainJavaFX;
     public static Stage primaryStage;
-    private static int currentPassword;
+    private static Person currentUser;
+    private static boolean isCurrentUserAdmin = false;
 
     @Override
     public void start(Stage primaryStage) {
 
         mainJavaFX = this;
-        System.out.println(managerList().get(0).getId());
-
         try{
             this.primaryStage = primaryStage;
 
@@ -54,22 +54,20 @@ public class MainJavaFX extends Application {
     }
 
 
-    public static ArrayList<Manager> managerList(){
-        Manager manager1 = new Manager("title", "John Johnsen", 123456, LocalDate.of(1996, 12, 20), "john@hotmail.com", 21436587);
-        Manager manager2 = new Manager("title", "Tom Tom", 654321, LocalDate.of(1996, 12, 20), "tom@hotmail.com", 21436587);
-        ArrayList<Manager> managerArrayList = new ArrayList<>();
-        managerArrayList.add(manager1);
-        managerArrayList.add(manager2);
-        return managerArrayList;
+    public static void setCurrentPerson(Person currentUser, boolean currentUserRole){
+        MainJavaFX.currentUser = currentUser;
+        if (currentUserRole)
+            isCurrentUserAdmin = true;
+        else
+            isCurrentUserAdmin = false;
     }
 
-    public static int getCurrentPassword() {
-        return currentPassword;
+    public static Person getCurrentUser(){
+        return currentUser;
     }
 
-    public static int setCurrentPassword(int currentPassword) {
-        MainJavaFX.currentPassword = currentPassword;
-        return currentPassword;
+    public static boolean getIsUserAdmin(){
+        return isCurrentUserAdmin;
     }
 
 

@@ -57,7 +57,7 @@ public class TicketController {
                     String email = txtEmail.getText();
                     int phone = Integer.parseInt(txtMobile.getText());
                     String position = txtPosition.getText();
-                    User newCustomer = new User(name, date, email, phone, position);
+                    User newCustomer = new User(name,1000, date, email, phone, position);
 
                     int seatN = (Integer) seat.getValue() - 1;
                     int rowN = (Integer) row.getValue() - 1;
