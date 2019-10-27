@@ -56,7 +56,7 @@ public class EventController {
         String place = txtLocation.getText();
         ArrayList<Event> arrayList = DataHandler.getEventList();
 
-        int agerestrict = 0, seat = 0, stand = 0, row = 0, time = 0, price = 0;
+        int agerestrict = 0, time = 0, price = 0;
 
         try {
             agerestrict = (int) Math.round(agePicker.getValue());

@@ -399,7 +399,7 @@
       "day": 10
     },
     "time": 0,
-    "ageRestrict": 13,
+    "ageRestrict": 50,
     "place": "Fredrikstad",
     "capacity": 5,
     "seat": 5,

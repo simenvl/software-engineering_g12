@@ -147,7 +147,7 @@ public class MainJavaFX extends Application {
 
             TicketController ticketController= fxmlLoader.getController();
 
-            ticketController.setEventToBeEdited(ticketEvent);
+            ticketController.setEventToAddTicket(ticketEvent);
 
 
         }

@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 
 public class Event {
@@ -16,39 +17,32 @@ public class Event {
     private String title;
     private LocalDate date;
     private int time;
+    private int capacity;
     private int ageRestrict;
     private String place;
-    private int capacity;
-    private int seat;
-    private int row;
     private int price;
-    private int seats[][];
-    private int stand;
+    private ArrayList<User> participants = new ArrayList<>();
 
 
     public Event() {
 
     }
 
-    public Event(String title, LocalDate date, int managerId, int agerestrict, String place, int price, int seat, int row, int stand, String description, int time) {
+    public Event(String title, LocalDate date, int managerId, int agerestrict, String place, int price, String description, int time) {
         this.title = title;
         this.date = date;
         this.managerId = managerId;
         this.ageRestrict = agerestrict;
         this.place = place;
-        this.capacity = seat * row;
         this.price = price;
-        this.seat = seat;
-        this.row = row;
-        this.seats = new int[row][seat];
         this.description = description;
-        this.stand = stand;
         this.time = time;
     }
 
     @Override
     public String toString() {
-        return getTitle() + " - Price: " + getPrice() + "kr";/*"Event{" +
+        return title + " - Price: " + price + "kr";
+                /*"Event{" +
                 "EventId=" + eventId +
                 ", ManagerId=" + managerId +
                 ", Title=" + title +
@@ -105,10 +99,6 @@ public class Event {
         this.place = place;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
     public int getPrice() {
         return price;
     }
@@ -125,47 +115,6 @@ public class Event {
         return description;
     }
 
-    public int getStand() {
-        return stand;
-    }
-
-    public void setStand(int stand) {
-        this.stand = stand;
-    }
-
-    public int getSeat() {
-        return seat;
-    }
-
-    public int getRow() {
-        return row;
-    }
-
-    public void setSeat(int seat) {
-        this.seat = seat;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public void setSeats(int seat, int row) {
-        this.seats[row][seat] = 1;
-    }
-
-    public int getSeats(int seat, int row) {
-        return seats[row][seat];
-    }
-
-    public ObservableList<Integer> getRowList(int rows) {
-        ObservableList<Integer> rowList = FXCollections.observableArrayList();
-        for (int i = 0; i < seat; i++) {
-            if (seats[rows][i] < 1)
-                rowList.addAll(i + 1);
-        }
-        return rowList;
-    }
-
     public int getTime() {
         return time;
     }
@@ -174,12 +123,11 @@ public class Event {
         this.time = time;
     }
 
-    public void printSeats() {
-        for (int I = 0; I < row; I++) {
-            System.out.println("");
-            for (int Y = 0; Y < seat; Y++) {
-                System.out.print(getSeats(Y, I) + " ");
-            }
-        }
+    public ArrayList<User> getParticipants() {
+        return participants;
+    }
+
+    public void addParticipants(User newUser) {
+        this.participants.add(newUser);
     }
 }
