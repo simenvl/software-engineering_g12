@@ -1,21 +1,18 @@
 package no.ticket.Json;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import no.ticket.Model.Event;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ReadJson {
 
-    private static ArrayList<Event> eventsList;
+    private static ArrayList<Event> eventsList = new ArrayList<>();
 
     public static void main(String[] args){
-
+        readJson();
     }
 
     public static ArrayList<Event> getList() {
@@ -24,6 +21,18 @@ public class ReadJson {
     }
 
     private static void readJson(){
+        Gson gson = new Gson();
+
+
+        try (FileReader reader = new FileReader(EventPath.eventPath)) {
+            Event[] event = gson.fromJson(reader, Event[].class);
+            eventsList.addAll(Arrays.asList(event));
+            System.out.println(eventsList);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        /*
         JSONParser parser = new JSONParser();
 
         try (FileReader reader = new FileReader(EventPath.eventPath)) {
@@ -34,7 +43,7 @@ public class ReadJson {
             eventsList = gson.fromJson(jsonObj.toJSONString(), type);
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
     }
 
 
