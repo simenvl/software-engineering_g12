@@ -1,7 +1,6 @@
 
-import Gruppe10.Model.Customer;
-import no.ticket.Model.Event;
 import no.ticket.Model.User;
+import no.ticket.Model.Event;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class testEvent {
+public class TestEvents {
     private static Event event;
     private static User testson;
     private static ArrayList<Event> eventList = new ArrayList<>();
@@ -55,7 +54,7 @@ public class testEvent {
     @Test
     public void ConcertIsLeft() {
         eventList.remove(event);
-        Assertions.assertEquals("Concert", eventList.get(0).getTitle());
+        Assertions.assertEquals("Skiing", eventList.get(0).getTitle());
     }
 
 }
