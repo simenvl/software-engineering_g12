@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Main {
+public class loginTest {
     static Manager manager;
     @BeforeAll
     public static void init(){
