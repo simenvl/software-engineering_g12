@@ -1,0 +1,10 @@
+@startuml
+(*)  --> "Login to account"
+-down-> "Type in credentials"
+if "check input" then
+--> [true] "Login"
+else
+-left-> [false] "Fields doesn't match"
+--> "Type in credentials"
+Endif
+@enduml
