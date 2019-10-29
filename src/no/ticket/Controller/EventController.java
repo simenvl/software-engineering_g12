@@ -51,7 +51,7 @@ public class EventController {
 
         String title = txtTitle.getText();
         String description = txtDescription.getText();
-        //int capacity = Integer.parseInt(txtCapacity.getText());
+        int capacity = Integer.parseInt(txtCapacity.getText());
         LocalDate date = datePicker.getValue();
         String place = txtLocation.getText();
         ArrayList<Event> arrayList = DataHandler.getEventList();
@@ -70,7 +70,7 @@ public class EventController {
 
         if (!editNewEvent) {
             int managerID = MainJavaFX.getCurrentUser().getId();
-            Event newEvent = new Event(title,date, managerID, agerestrict, place,price, description, time, 10);
+            Event newEvent = new Event(title,date, managerID, agerestrict, place,price, description, time, capacity);
             arrayList.add(newEvent);
 
             WriteJson.addToJson(arrayList);
