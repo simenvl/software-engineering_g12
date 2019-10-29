@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ticket.Controller.EventController">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ticket.Controller.EventController">
    <children>
       <HBox>
           <padding><Insets left="20" right="20" top="20" /></padding>
@@ -73,21 +73,7 @@
                      </VBox.margin></Label>
                   <HBox prefWidth="200.0" spacing="10.0">
                      <children>
-                        <Label maxHeight="1.7976931348623157E308" text="Stand" />
-                        <TextField fx:id="txtStand" prefHeight="25.0" prefWidth="58.0">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin></TextField>
-                        <Label maxHeight="1.7976931348623157E308" text="Seat">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin></Label>
-                        <TextField fx:id="txtSeat" prefWidth="70.0">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin></TextField>
-                        <Label maxHeight="1.7976931348623157E308" text="Row" />
-                        <TextField fx:id="txtRow" prefWidth="70.0">
+                        <TextField fx:id="txtCapacity" prefHeight="25.0" prefWidth="366.0">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin></TextField>
