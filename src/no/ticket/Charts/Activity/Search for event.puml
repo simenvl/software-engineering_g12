@@ -1,0 +1,10 @@
+@startuml
+(*)  --> "Choose search field"
+--> "Type in search field"
+--> "Check off desired filters"
+if "Search based on criteria" then
+--> [event found] "list all events based on criteria"
+else
+--> [no event found] "no event found that meets the criteria"
+endif
+@enduml
