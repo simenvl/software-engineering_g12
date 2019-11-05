@@ -23,6 +23,8 @@ public class LoginController {
     @FXML
     public Button userButton;
     @FXML
+    public Button creatuserBtn;
+    @FXML
     public Label messageLabel;
     @FXML
     public ComboBox<Manager> comboAdmin;
@@ -57,20 +59,23 @@ public class LoginController {
         });
 
 
-
         comboAdmin.setItems(adminList);
         comboUser.setItems(userList);
         comboAdmin.getSelectionModel().select(0);
         comboUser.getSelectionModel().select(0);
 
+        creatuserBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                MainJavaFX.getInstance().setCreateUserLayout();
+            }
+        });
 
     }
 
     public void guestButtonClicked(javafx.event.ActionEvent actionEvent) {
 
     }
-
-
 
     public void onClick(boolean ifAdmin){
         //her blir verdien som ble tastet inn sendt videre om den matcher med ID-en til en manager

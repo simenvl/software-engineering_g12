@@ -158,5 +158,18 @@ public class MainJavaFX extends Application {
 
     }
 
+    public void setCreateUserLayout() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("View/CreateUser.fxml"));
+            Parent createUser = fxmlLoader.load();
+
+            Scene createUserScene = new Scene(createUser);
+            primaryStage.setScene(createUserScene);
+            primaryStage.setTitle("Create User");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
