@@ -1,0 +1,26 @@
+@startuml
+User -> HovedLayoutView: select event
+HovedLayoutView -> HovedLayout: event selected
+HovedLayout -> EventList: get selected event
+EventList -> HovedLayout: return event info
+HovedLayout -> HovedLayoutView: show event info
+User -> HovedLayoutView: join event
+HovedLayoutView -> HovedLayout: join event
+HovedLayout -> TicketLayout: change view
+TicketLayout -> TicketLayoutView: this view
+TicketLayoutView -> User: input user info
+User -> TicketLayoutView: inputed info
+TicketLayoutView -> TicketLayout: create event
+alt payment required
+TicketLayout -> PaymentAPI: open payment portal
+PaymentAPI -> User: require payment method
+User -> PaymentAPI: payment performed
+PaymentAPI -> TicketLayout: payment successful
+TicketLayout -> TicketLayoutView: user accepted
+TicketLayoutView -> User: user joined event
+else payment not required
+TicketLayout -> TicketLayoutView: user accepted
+TicketLayoutView -> User: user joined event
+
+end
+@enduml

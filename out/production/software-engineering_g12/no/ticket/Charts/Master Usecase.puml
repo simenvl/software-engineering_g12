@@ -1,0 +1,25 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+actor User
+actor Manager
+User <.-up- Manager : Manager can act as user
+
+User -> (Login)
+Manager -> (Login)
+(Login) .> events : includes events
+
+rectangle events {
+  User -- (Join event)
+  User -- (Leave event)
+  User -- (pay for event)
+}
+rectangle edits {
+  Manager -- (Create events)
+  Manager -- (Edit events)
+  Manager -- (Delete events)
+  Manager -- (Blacklist User from events)
+}
+
+@enduml
