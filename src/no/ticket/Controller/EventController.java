@@ -1,12 +1,10 @@
 package no.ticket.Controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import no.ticket.Data.DataHandler;
+import no.ticket.Json.EventPath;
 import no.ticket.Json.WriteJson;
 import no.ticket.MainJavaFX;
 import no.ticket.Model.Event;
@@ -64,7 +62,9 @@ public class EventController {
             time = Integer.parseInt(timeOfEvent.getText());
             price = Integer.parseInt(txtPrice.getText());
         } catch (NumberFormatException ex) {
-           // new AlertBox("INPUT ERROR", "Please use numbers and text correctly", "Age, seat, stand, row, time and price must be numbers.", 1);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("INPUT ERROR, Please use numbers and text correctly");
+            alert.showAndWait();
             return;
         }
 
