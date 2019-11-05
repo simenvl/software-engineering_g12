@@ -45,6 +45,9 @@ public class TicketController {
             public void handle(ActionEvent event) {
                 if (Period.between(MainJavaFX.getCurrentUser().getBirthDate(), LocalDate.now()).getYears() < buyTicketEvent.getAgeRestrict()) {
                     //new AlertBox("Too young", "You are not old enough for this event", "", 2);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("You are not old enough for this event");
+                    alert.showAndWait();
                     System.out.println("You are not old enough for this event");
                 } else {
                     System.out.println("Ticket bought");
