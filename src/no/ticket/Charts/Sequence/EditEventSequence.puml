@@ -1,11 +1,16 @@
 @startuml
-Manager -> HovedLayoutView: select event
-HovedLayoutView -> HovedLayout: event selected
-
 alt no event selected
+Manager -> HovedLayoutView: edit event
+HovedLayoutView -> HovedLayout: No event selected
 HovedLayout -> HovedLayoutView: error message
 HovedLayoutView -> Manager: you must select an event
 end
+Manager -> HovedLayoutView: select event
+HovedLayoutView -> HovedLayout: event selected
+HovedLayout -> EventList: get selected event
+EventList -> HovedLayout: return event info
+HovedLayout -> HovedLayoutView: show event info
+Manager -> HovedLayoutView: edit event
 HovedLayoutView -> HovedLayout: edit event
 HovedLayout -> EventLayout: change view
 EventLayout -> EventLayoutView: this view

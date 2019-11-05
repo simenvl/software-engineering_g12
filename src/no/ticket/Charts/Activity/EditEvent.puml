@@ -1,0 +1,16 @@
+@startuml
+(*)  --> "Login as Manager"
+--> "select event"
+--> "edit event"
+if "manager can edit"
+--> [true] "input information about event"
+if "validate information"
+--> [true] "event edited"
+else
+-up-> [false] "information is incorrect"
+--> "input information about event"
+endif
+else
+--> [false] "this account cannot edit this event"
+endif
+@enduml

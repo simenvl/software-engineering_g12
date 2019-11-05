@@ -1,0 +1,8 @@
+@startuml
+User -> HovedLayoutView: sortBy
+HovedLayoutView -> HovedLayout: sortBy
+HovedLayout -> EventList: sortBy method
+EventList -> HovedLayout: return sorted list
+HovedLayout -> HovedLayoutView: show sorted list
+HovedLayoutView -> User: sorted list info
+@enduml

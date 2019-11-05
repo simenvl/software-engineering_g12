@@ -1,0 +1,12 @@
+@startuml
+(*)  --> "Assign manager to event"
+--> choose event
+--> assign manager to event
+--> input manager name
+if "check for manager name"
+--> [true] "manager added to event"
+else
+-up-> [false] "manager does not exist"
+--> "input manager name"
+endif
+@enduml

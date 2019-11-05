@@ -1,0 +1,30 @@
+@startuml
+(*)  --> "Search for event"
+--> "Select event"
+--> "Choose join event"
+--> "Type in required info"
+if "Check fields" then
+--> [true] if "validate fields" then
+    --> [true] "Ready for signup"
+        if "payment required?" then
+        --> [yes] "Go to payment"
+        --> "Choose payment option"
+        --> if "Validate payment" then
+            --> [true] "transaction complete"
+            --> "signed up to event"
+            else
+            --> [false] "transaction failed"
+            endif
+        else
+        --> [no] "signed up to event"
+        endif
+    else
+    --> [false] "one or more fields is incorrect"
+    --> "Type in required info"
+    endif
+else
+-up-> [false]"One or more fields is missing"
+--> "Type in required info"
+endif
+
+@enduml
