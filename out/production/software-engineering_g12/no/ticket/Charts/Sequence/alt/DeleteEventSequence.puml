@@ -1,0 +1,15 @@
+@startuml
+Manager -> View: [click] select event
+View -> HovedLayout: eventSelected()
+HovedLayout -> EventList: getSelectedEvent()
+EventList -> HovedLayout: return Event()
+HovedLayout -> View: showEvent()
+Manager -> View: [click] delete event
+View -> HovedLayout: deletionRequest()
+HovedLayout -> EventList: deleteEvent()
+EventList -> EventList: updateList()
+EventList -> HovedLayout: updatedList()
+EventList -> Database: deleteInDatabase()
+HovedLayout -> View: [message] success
+View -> Manager: event deleted
+@enduml

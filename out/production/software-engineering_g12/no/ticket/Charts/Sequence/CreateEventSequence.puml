@@ -1,0 +1,20 @@
+@startuml
+Manager -> HovedLayoutView: new event
+HovedLayoutView -> HovedLayout: new event
+HovedLayout -> EventLayout: change view
+EventLayout -> EventLayoutView: this view
+EventLayoutView -> Manager: input event info
+Manager -> EventLayoutView: inputed info
+EventLayoutView -> EventLayout: create event
+alt event successfully created
+EventLayout -> Database: store event
+Database -> EventList: update event list
+EventList -> HovedLayout: updated event list
+HovedLayout -> HovedLayoutView: show event list
+HovedLayoutView -> Manager: event created
+else failed to create event
+EventLayout -> HovedLayout: error message
+HovedLayout -> HovedLayoutView: show error message
+HovedLayoutView -> Manager: event not created
+end
+@enduml

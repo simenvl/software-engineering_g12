@@ -1,0 +1,14 @@
+@startuml
+Manager -> LoginView: [input] login
+LoginView -> Login: validateLogin()
+Login -> Database: getManagerList()
+Database -> Login: return managerList()
+Login -> Login: matchManagerList()
+alt login successful
+Login -> LoginView: return manager()
+LoginView -> Manager: login successful
+else login failed
+Login -> LoginView: [message] error
+LoginView -> Manager: login failed
+end
+@enduml

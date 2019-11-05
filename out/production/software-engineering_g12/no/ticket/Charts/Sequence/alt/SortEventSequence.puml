@@ -1,0 +1,8 @@
+@startuml
+User -> View: [click] sortBy(method)
+View -> HovedLayout: sortByRequest()
+HovedLayout -> EventList: EventList.sortBy(method)
+EventList -> HovedLayout: return EventList()
+HovedLayout -> View: showEventList()
+View -> User: sorted list info
+@enduml
