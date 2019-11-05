@@ -63,7 +63,8 @@ public class EventController {
             price = Integer.parseInt(txtPrice.getText());
         } catch (NumberFormatException ex) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("INPUT ERROR, Please use numbers and text correctly");
+            alert.setHeaderText("Input Error");
+            alert.setContentText("Please use numbers and text correctly");
             alert.showAndWait();
             return;
         }
