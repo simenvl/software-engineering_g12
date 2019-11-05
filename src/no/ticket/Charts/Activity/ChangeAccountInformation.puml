@@ -1,0 +1,12 @@
+@startuml
+(*)  --> "Edit account information"
+--> "Login to account"
+--> "Edit account"
+--> "Type in changes"
+if "information is valid"
+--> [true]"Your account has been updated"
+else
+-up-> [false] "Your information is incorrect"
+--> "Type in changes"
+end if
+@enduml

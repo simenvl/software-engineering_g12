@@ -1,0 +1,29 @@
+@startuml
+alt no event selected
+Manager -> View: [click] edit event
+View -> HovedLayout: NoEventSelected()
+HovedLayout -> View: [message] error
+View -> Manager: must select an event
+end
+Manager -> View: [click] select event
+View -> HovedLayout: eventSelected()
+HovedLayout -> EventList: getSelectedEvent()
+EventList -> HovedLayout: return Event()
+HovedLayout -> View: showEvent()
+Manager -> View:[click] edit event
+View -> HovedLayout: editEventRequest()
+HovedLayout -> EventLayout: changeView()
+EventLayout -> View: this = view
+View --> Manager: input event info
+Manager -> View: [input] event info
+View -> EventLayout: editEvent()
+alt event successfully created
+EventLayout -> Database: updateEvent()
+EventLayout -> EventList: updateEventList()
+EventLayout -> View: [message success]
+View -> Manager: event edited
+else failed to create event
+EventLayout -> View: [message] error
+View -> Manager: event not edited
+end
+@enduml
