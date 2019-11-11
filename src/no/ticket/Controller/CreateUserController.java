@@ -5,7 +5,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import no.ticket.Data.ServiceStubs;
 import no.ticket.MainJavaFX;
+import no.ticket.Model.Manager;
+
+import java.time.LocalDate;
 
 
 public class CreateUserController {
@@ -28,6 +32,7 @@ public class CreateUserController {
     private TextField name;
 
     ToggleGroup radioGroup = new ToggleGroup();
+    ServiceStubs database = MainJavaFX.database;
 
 
     public void initialize() {
@@ -54,11 +59,16 @@ public class CreateUserController {
         if(name.getText().trim().isEmpty()){
             System.out.println("Empty");
 
-            
+
         } else {
+            LocalDate birthDay = datePicker.getValue();
             switch (radioGroup.getSelectedToggle().getUserData().toString()) {
                 case "0":
+                    Manager newManager = new Manager("Admin", name.getText(), 000, birthDay, email.getText(), 998877);
                     System.out.println("Toggle : " + radioGroup.getSelectedToggle().getUserData());
+                    database.addAdmin(newManager);
+
+                    System.out.println("Toggle : " + database.getAdmins());
                     break;
                 case "1":
                     System.out.println("Toggle : " + radioGroup.getSelectedToggle().getUserData());

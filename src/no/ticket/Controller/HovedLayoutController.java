@@ -16,6 +16,7 @@ import no.ticket.MainJavaFX;
 import no.ticket.Model.Event;
 import no.ticket.Model.Person;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -61,6 +62,8 @@ public class HovedLayoutController {
 
     @FXML
     private Button btnDelete;
+    @FXML
+    private ListView<Event> pastEventsList;
 
     private Person person;
 
@@ -70,43 +73,33 @@ public class HovedLayoutController {
             "Date ascending",
             "Date descending",
             "Price ascending",
-            "Price descending",
-            "Capacity ascending",
-            "Capacity descending"
+            "Price descending"
+            //, "Capacity ascending",
+            //"Capacity descending"
     );
 
+    ObservableList<Event> currentEvents = FXCollections.observableArrayList();
+    ObservableList<Event> pastEvents = FXCollections.observableArrayList();
     ObservableList<Event> listWithEvents = FXCollections.observableArrayList();
+
 
     @FXML
     public void initialize() {
-//        Liste over valgt manager
-//        for (int i = 0; i < DataHandler.getEventData().size(); i++){
-//            if (MainJavaFX.getCurrentPassword() == DataHandler.getEventData().get(i).getManagerId() && MainJavaFX.getCurrentPassword() != 0){
-//                listWithEvents.add(DataHandler.getEventData().get(i));
-//
-//            }
-//        }
-        if (!MainJavaFX.getIsUserAdmin()) {
-            listWithEvents.addAll(DataHandler.getEventData());
-            newEvent.setVisible(false);
-            editEvent.setVisible(false);
-            btnDelete.setVisible(false);
-        }
-        if (MainJavaFX.getIsUserAdmin()) {
-            for (Event event : DataHandler.getEventData()){
-                if (Integer.valueOf(event.getManagerId()).equals(MainJavaFX.getCurrentUser().getId()))
-                    listWithEvents.add(event);
-            }
 
+        for(Event event : DataHandler.getEventData()){
+            if (event.getDate().compareTo(LocalDate.now()) > 0)
+                currentEvents.add(event);
+            else
+                pastEvents.add(event);
         }
-        eventListView.setItems(listWithEvents);
+        eventListView.setItems(currentEvents);
+        pastEventsList.setItems(pastEvents);
         sortBy.setItems(sortMethods);
 
-        capacityTextArea.setEditable(false);
-        placeTextArea.setEditable(false);
-        capacityTextArea.setEditable(false);
-        descriptionTextArea.setEditable(false);
-        datePicker.setEditable(false);
+        if (MainJavaFX.getIsUserAdmin())
+            newEvent.setVisible(true);
+        else
+            newEvent.setVisible(false);
 
         sortBy.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
@@ -114,22 +107,28 @@ public class HovedLayoutController {
 
                 if (newValue == "Alfabetical descending") {
                     Comparator<Event> comparator = Comparator.comparing(Event::getTitle);
-                    FXCollections.sort(listWithEvents, comparator.reversed());
+                    FXCollections.sort(currentEvents, comparator.reversed());
+                    FXCollections.sort(pastEvents, comparator.reversed());
                 } else if (newValue == "Alfabetical ascending") {
                     Comparator<Event> comparator = Comparator.comparing(Event::getTitle);
-                    FXCollections.sort(listWithEvents, comparator);
+                    FXCollections.sort(currentEvents, comparator);
+                    FXCollections.sort(pastEvents, comparator);
                 } else if (newValue == "Date descending") {
                     Comparator<Event> comparator = Comparator.comparing(Event::getDate);
-                    FXCollections.sort(listWithEvents, comparator.reversed());
+                    FXCollections.sort(currentEvents, comparator.reversed());
+                    FXCollections.sort(pastEvents, comparator.reversed());
                 } else if (newValue == "Date ascending") {
                     Comparator<Event> comparator = Comparator.comparing(Event::getDate);
-                    FXCollections.sort(listWithEvents, comparator);
+                    FXCollections.sort(currentEvents, comparator);
+                    FXCollections.sort(pastEvents, comparator);
                 } else if (newValue == "Price descending") {
                     Comparator<Event> comparator = Comparator.comparing(Event::getPrice);
-                    FXCollections.sort(listWithEvents, comparator.reversed());
+                    FXCollections.sort(currentEvents, comparator.reversed());
+                    FXCollections.sort(pastEvents, comparator.reversed());
                 } else if (newValue == "Price ascending") {
                     Comparator<Event> comparator = Comparator.comparing(Event::getPrice);
-                    FXCollections.sort(listWithEvents, comparator);
+                    FXCollections.sort(currentEvents, comparator);
+                    FXCollections.sort(pastEvents, comparator);
                 }
 
 
@@ -137,6 +136,14 @@ public class HovedLayoutController {
         });
 
         eventListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Event>() {
+            @Override
+            public void changed(ObservableValue<? extends Event> observable, Event oldValue, Event newValue) {
+                if (newValue != null) {
+                    eventDetails(newValue);
+                }
+            }
+        });
+        pastEventsList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Event>() {
             @Override
             public void changed(ObservableValue<? extends Event> observable, Event oldValue, Event newValue) {
                 if (newValue != null) {
@@ -199,6 +206,17 @@ public class HovedLayoutController {
         timeOfEvent.setText(String.valueOf(event.getTime()));
         placeTextArea.setText(event.getPlace());
         capacityTextArea.setText(Integer.toString(event.getCapacity()));
+
+        if (MainJavaFX.getIsUserAdmin() && event.getManagerId() == MainJavaFX.getCurrentUser().getId()) {
+            editEvent.setVisible(true);
+            btnDelete.setVisible(true);
+        } else {
+            editEvent.setVisible(false);
+            btnDelete.setVisible(false);
+        }
+
+        if (MainJavaFX.getIsUserAdmin())
+            newEvent.setVisible(true);
     }
 
     public void newEvent(ActionEvent actionEvent) {

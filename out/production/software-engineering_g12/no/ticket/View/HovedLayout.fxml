@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ticket.Controller.HovedLayoutController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ticket.Controller.HovedLayoutController">
 
     <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
@@ -28,7 +28,7 @@
                      </VBox.margin>
                   </ListView>
                   <Label text="Passed Events" />
-                  <ListView fx:id="eventListView1" prefHeight="406.0" prefWidth="389.0">
+                  <ListView fx:id="pastEventsList" prefHeight="406.0" prefWidth="389.0">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -59,36 +59,36 @@
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <TextArea fx:id="descriptionTextArea" prefHeight="169.0" prefWidth="307.0" />
+                      <TextArea fx:id="descriptionTextArea" editable="false" prefHeight="169.0" prefWidth="307.0" />
                       <Label fx:id="dateLabel" text="Date">
                           <font>
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <DatePicker fx:id="datePicker" />
+                      <DatePicker fx:id="datePicker" editable="false" />
                       <Label fx:id="descriptionLabeltime" text="Time">
                           <font>
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <TextField fx:id="timeOfEvent" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
+                      <TextField fx:id="timeOfEvent" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" />
                       <Label fx:id="placeLabel" text="Place">
                           <font>
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <TextArea fx:id="placeTextArea" prefHeight="44.0" prefWidth="273.0" />
+                      <TextArea fx:id="placeTextArea" editable="false" prefHeight="44.0" prefWidth="273.0" />
                       <Label fx:id="capacityLabel" text="Capacity">
                           <font>
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <TextArea fx:id="capacityTextArea" prefHeight="44.0" prefWidth="273.0" />
+                      <TextArea fx:id="capacityTextArea" editable="false" prefHeight="44.0" prefWidth="273.0" />
                       <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                           <children>
-                              <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#onClickDelete" text="Delete event" />
+                              <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#onClickDelete" text="Delete event" visible="false" />
                               <Button fx:id="newEvent" mnemonicParsing="false" text="New event" />
-                              <Button fx:id="editEvent" mnemonicParsing="false" text="Edit Event" />
+                              <Button fx:id="editEvent" mnemonicParsing="false" text="Edit Event" visible="false" />
                               <Button fx:id="logOutBtn" mnemonicParsing="false" text="Log out" />
                               <Button fx:id="buyTicketBtn" defaultButton="true" mnemonicParsing="false" text="Join event" />
                           </children>

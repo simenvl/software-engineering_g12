@@ -105,5 +105,21 @@
         "phone": 99887766
       }
     ]
+  },
+  {
+    "description": "T",
+    "managerId": 0,
+    "title": "Test",
+    "date": {
+      "year": 2021,
+      "month": 11,
+      "day": 30
+    },
+    "time": 10,
+    "capacity": 10,
+    "ageRestrict": 0,
+    "place": "her",
+    "price": 0,
+    "participants": []
   }
 ]

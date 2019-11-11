@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import no.ticket.Controller.EventController;
 import no.ticket.Controller.HovedLayoutController;
 import no.ticket.Controller.TicketController;
+import no.ticket.Data.ServiceStubs;
 import no.ticket.Model.Event;
 import no.ticket.Model.Manager;
 import no.ticket.Model.Person;
@@ -22,10 +23,17 @@ public class MainJavaFX extends Application {
     private static MainJavaFX mainJavaFX;
     public static Stage primaryStage;
     private static Person currentUser;
+    public static ServiceStubs database = new ServiceStubs();
     private static boolean isCurrentUserAdmin = false;
+    private static boolean firstStartUp = false;
 
     @Override
     public void start(Stage primaryStage) {
+
+        if (!firstStartUp){
+            database.initialize();
+            firstStartUp = true;
+        }
 
         mainJavaFX = this;
         try{
@@ -46,6 +54,7 @@ public class MainJavaFX extends Application {
         catch(IOException e){
             e.printStackTrace();
         }
+
 
     }
 
@@ -73,8 +82,6 @@ public class MainJavaFX extends Application {
 
     public void setHovedLayout() {
         try{
-            this.primaryStage = primaryStage;
-
             FXMLLoader fxmlLoader = new FXMLLoader();
 
             fxmlLoader.setLocation(getClass().getResource("View/HovedLayout.fxml"));
@@ -84,10 +91,6 @@ public class MainJavaFX extends Application {
             Scene hovedScene = new Scene(hovedLayout);
 
             primaryStage.setScene(hovedScene);
-
-            HovedLayoutController hovedController = fxmlLoader.getController();
-
-            /* primaryStage.show();*/
         }
         catch(IOException e){
             e.printStackTrace();

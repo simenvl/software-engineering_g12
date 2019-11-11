@@ -39,32 +39,29 @@ public class LoginController {
     private ServiceStubs database;
 
     public void initialize() {
+         database = MainJavaFX.database;
 
-         database = new ServiceStubs();
+         adminList.addAll(database.getAdmins());
+         userList.addAll(database.getUsers());
 
-
-        adminList.addAll(database.getAdmins());
-        userList.addAll(database.getUsers());
-
-
-        adminButton.setOnAction(new EventHandler<ActionEvent>() {
+         adminButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 onClick(true);
             }
-        });
-        userButton.setOnAction(new EventHandler<ActionEvent>() {
+         });
+         userButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 onClick(false);
             }
-        });
+         });
 
 
-        comboAdmin.setItems(adminList);
-        comboUser.setItems(userList);
-        comboAdmin.getSelectionModel().select(0);
-        comboUser.getSelectionModel().select(0);
+         comboAdmin.setItems(adminList);
+         comboUser.setItems(userList);
+         comboAdmin.getSelectionModel().select(0);
+         comboUser.getSelectionModel().select(0);
 
         creatuserBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -84,7 +81,6 @@ public class LoginController {
             if (ifAdmin) {
                 for (Manager admin : database.getAdmins()) {
                     if (Integer.toString(admin.getId()).equals(Integer.toString(comboAdmin.getValue().getId()))){
-                        System.out.println(comboAdmin.getValue().getName());
                         MainJavaFX.setCurrentPerson(admin, true);
                         MainJavaFX.getInstance().setHovedLayout();
                     } else {
@@ -94,7 +90,6 @@ public class LoginController {
             } else {
                 for (User guest : database.getUsers()) {
                     if (Integer.valueOf(guest.getId()).equals(comboUser.getValue().getId())){
-                        System.out.println(comboUser.getValue().getName());
                         MainJavaFX.setCurrentPerson(guest, false);
                         MainJavaFX.getInstance().setHovedLayout();
                     } else {

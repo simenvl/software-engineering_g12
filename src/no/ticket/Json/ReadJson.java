@@ -21,29 +21,16 @@ public class ReadJson {
     }
 
     private static void readJson(){
+        eventsList.clear();
         Gson gson = new Gson();
 
 
         try (FileReader reader = new FileReader(EventPath.eventPath)) {
             Event[] event = gson.fromJson(reader, Event[].class);
             eventsList.addAll(Arrays.asList(event));
-            System.out.println(eventsList);
         }catch (Exception e){
             e.printStackTrace();
         }
-
-        /*
-        JSONParser parser = new JSONParser();
-
-        try (FileReader reader = new FileReader(EventPath.eventPath)) {
-            Object obj = parser.parse(reader);
-            JSONArray jsonObj = (JSONArray) obj;
-            Gson gson = new Gson();
-            Type type = new TypeToken<ArrayList<Event>>(){}.getType();
-            eventsList = gson.fromJson(jsonObj.toJSONString(), type);
-        }catch (Exception e){
-            e.printStackTrace();
-        }*/
     }
 
 
