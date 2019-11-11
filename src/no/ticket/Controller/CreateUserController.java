@@ -57,7 +57,7 @@ public class CreateUserController {
     }
 
     public void createUser(ActionEvent actionEvent) {
-        if(name.getText().trim().isEmpty()){
+        if(name.getText().isEmpty() && email.getText().isEmpty()){
             System.out.println("Empty");
 
 
@@ -65,7 +65,7 @@ public class CreateUserController {
             LocalDate birthDay = datePicker.getValue();
             switch (radioGroup.getSelectedToggle().getUserData().toString()) {
                 case "0":
-                    Manager newManager = new Manager("Admin", name.getText(), 000, birthDay, email.getText(), 998877);
+                    Manager newManager = new Manager("Admin", name.getText(), 000, birthDay, email.getText(),998877);
                     database.addAdmin(newManager);
                     break;
                 case "1":
