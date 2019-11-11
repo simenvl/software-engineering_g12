@@ -3,10 +3,7 @@ package no.ticket.Controller;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import no.ticket.MainJavaFX;
 
@@ -41,6 +38,10 @@ public class CreateUserController {
                 MainJavaFX.setCurrentPerson(null,false);
             }
         });
+
+        ToggleGroup radioGroup = new ToggleGroup();
+        managerRadio.setToggleGroup(radioGroup);
+        contestantRadio.setToggleGroup(radioGroup);
 
     }
 
