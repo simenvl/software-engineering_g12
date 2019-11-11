@@ -121,5 +121,21 @@
     "place": "her",
     "price": 0,
     "participants": []
+  },
+  {
+    "description": "t",
+    "managerId": 654321,
+    "title": "Løp",
+    "date": {
+      "year": 2040,
+      "month": 11,
+      "day": 30
+    },
+    "time": 10,
+    "capacity": 10,
+    "ageRestrict": 0,
+    "place": "Her",
+    "price": 0,
+    "participants": []
   }
 ]

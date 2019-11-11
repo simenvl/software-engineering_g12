@@ -141,6 +141,9 @@ public class HovedLayoutController {
         eventListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Event>() {
             @Override
             public void changed(ObservableValue<? extends Event> observable, Event oldValue, Event newValue) {
+                if (!pastEventsList.getSelectionModel().isEmpty())
+                    pastEventsList.getSelectionModel().clearSelection(0); // INdex out of bound... JavaFX
+
                 if (newValue != null) {
                     eventDetails(newValue);
                 }
@@ -150,11 +153,14 @@ public class HovedLayoutController {
         pastEventsList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Event>() {
             @Override
             public void changed(ObservableValue<? extends Event> observable, Event oldValue, Event newValue) {
+                if(!eventListView.getSelectionModel().isEmpty())
+                    eventListView.getSelectionModel().clearSelection(0);
                 if (newValue != null) {
                     eventDetails(newValue);
                 }
                 buyTicketBtn.setVisible(false);
             }
+
         });
 
         editEvent.setOnAction(new EventHandler<ActionEvent>() {
