@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import no.ticket.Data.ServiceStubs;
 import no.ticket.MainJavaFX;
 import no.ticket.Model.Manager;
+import no.ticket.Model.User;
 
 import java.time.LocalDate;
 
@@ -65,13 +66,11 @@ public class CreateUserController {
             switch (radioGroup.getSelectedToggle().getUserData().toString()) {
                 case "0":
                     Manager newManager = new Manager("Admin", name.getText(), 000, birthDay, email.getText(), 998877);
-                    System.out.println("Toggle : " + radioGroup.getSelectedToggle().getUserData());
                     database.addAdmin(newManager);
-
-                    System.out.println("Toggle : " + database.getAdmins());
                     break;
                 case "1":
-                    System.out.println("Toggle : " + radioGroup.getSelectedToggle().getUserData());
+                    User newUser = new User(name.getText(), 001, birthDay, email.getText(), 998877);
+                    database.addUser(newUser);
                     break;
             }
 

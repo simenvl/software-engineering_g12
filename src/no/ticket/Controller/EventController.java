@@ -1,19 +1,30 @@
 package no.ticket.Controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import no.ticket.Data.DataHandler;
-import no.ticket.Json.EventPath;
 import no.ticket.Json.WriteJson;
 import no.ticket.MainJavaFX;
 import no.ticket.Model.Event;
+import no.ticket.Model.User;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class EventController {
 
+    @FXML
+    public ListView<User> ParticipantsListView;
+    public TextField txtName;
+    public TextField txtRankTitle;
+    public TextField txtRankNumber;
     @FXML
     private TextField txtTitle;
     @FXML
@@ -37,11 +48,43 @@ public class EventController {
     private Event eventToBeEdited;
     private Boolean editNewEvent = false;
 
+    ObservableList<User> participantsList = FXCollections.observableArrayList();
+
     @FXML
     public void initialize() {
         agePicker.valueProperty().addListener(((observable, oldValue, newValue) -> {
             txtAge.setText(Integer.toString(newValue.intValue()));
         }));
+
+        ParticipantsListView.setCellFactory(new Callback<ListView<User>, ListCell<User>>() {
+            @Override
+            public ListCell<User> call(ListView<User> param) {
+                ListCell<User> cell = new ListCell<User>() {
+
+                    @Override
+                    protected void updateItem(User user, boolean empty) {
+                        super.updateItem(user, empty);
+                        if (user != null) {
+                            setText(user.getRankNumber() + " - " + user.getName());
+                        } else {
+                            setText("");   // <== clear the now empty cell.
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
+
+        ParticipantsListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<User>() {
+            @Override
+            public void changed(ObservableValue<? extends User> observable, User oldValue, User newValue) {
+                if (newValue != null) {
+                    txtName.setText(newValue.getName());
+                    txtRankNumber.setText(Integer.toString(newValue.getRankNumber()));
+                    txtRankTitle.setText(newValue.getRank());
+                }
+            }
+        });
 
     }
 
@@ -109,7 +152,15 @@ public class EventController {
             txtPrice.setText(String.valueOf(eventToBeEdited.getPrice()));
             timeOfEvent.setText(String.valueOf(eventToBeEdited.getTime()));
             txtAge.setText(String.valueOf(eventToBeEdited.getAgeRestrict()));
+            participantsList.addAll(eventToBeEdited.getParticipants());
+            ParticipantsListView.setItems(participantsList);
         }
+    }
+
+
+
+
+    public void btnSaveParticipants(ActionEvent actionEvent) {
     }
 
 

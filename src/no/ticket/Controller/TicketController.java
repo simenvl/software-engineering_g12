@@ -31,6 +31,8 @@ public class TicketController {
     private TextField txtMobile;
     @FXML
     private TextField txtParticipant;
+    @FXML
+    private DatePicker datePicker;
 
 
     private Event buyTicketEvent;
@@ -44,7 +46,6 @@ public class TicketController {
             @Override
             public void handle(ActionEvent event) {
                 if (Period.between(MainJavaFX.getCurrentUser().getBirthDate(), LocalDate.now()).getYears() < buyTicketEvent.getAgeRestrict()) {
-                    //new AlertBox("Too young", "You are not old enough for this event", "", 2);
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setContentText("You are not old enough for this event");
                     alert.showAndWait();
@@ -90,19 +91,29 @@ public class TicketController {
     public void setEventToAddTicket(Event buyTicketEvent) {
         this.buyTicketEvent = buyTicketEvent;
 
-        eventTitle.setText(buyTicketEvent.getTitle());
-        txtName.setText(MainJavaFX.getCurrentUser().getName());
-        txtEmail.setText(MainJavaFX.getCurrentUser().getEmail());
-        txtMobile.setText(Integer.toString(MainJavaFX.getCurrentUser().getPhone()));
-        for (User current : buyTicketEvent.getParticipants()){
-            System.out.println(current.getId() + " " + MainJavaFX.getCurrentUser().getId());
-            if (Integer.valueOf(current.getId()).equals(MainJavaFX.getCurrentUser().getId())) {
-                txtParticipant.setText("You're already signed");
-                break;
-            } else {
-                participantNumber = buyTicketEvent.getParticipants().size() + 1;
-                txtParticipant.setText(Integer.toString(participantNumber));
+        if (MainJavaFX.getCurrentUser() != null) {
+            eventTitle.setText(buyTicketEvent.getTitle());
+            txtName.setText(MainJavaFX.getCurrentUser().getName());
+            txtEmail.setText(MainJavaFX.getCurrentUser().getEmail());
+            txtMobile.setText(Integer.toString(MainJavaFX.getCurrentUser().getPhone()));
+            datePicker.setValue(MainJavaFX.getCurrentUser().getBirthDate());
+            datePicker.setEditable(false);
+            for (User current : buyTicketEvent.getParticipants()) {
+                System.out.println(current.getId() + " " + MainJavaFX.getCurrentUser().getId());
+                if (Integer.valueOf(current.getId()).equals(MainJavaFX.getCurrentUser().getId())) {
+                    txtParticipant.setText("You're already signed");
+                    break;
+                } else {
+                    participantNumber = buyTicketEvent.getParticipants().size() + 1;
+                    txtParticipant.setText(Integer.toString(participantNumber));
+                }
             }
+        } else { // If user is a guest with no user
+            txtName.setEditable(true);
+            txtEmail.setEditable(true);
+            txtMobile.setEditable(true);
+            participantNumber = buyTicketEvent.getParticipants().size() + 1;
+            txtParticipant.setText(Integer.toString(participantNumber));
         }
 
 

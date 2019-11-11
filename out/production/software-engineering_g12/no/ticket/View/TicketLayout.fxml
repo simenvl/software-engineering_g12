@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.DatePicker?>
 <AnchorPane prefHeight="270.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ticket.Controller.TicketController">
     <VBox alignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <HBox alignment="CENTER">
@@ -50,6 +51,22 @@
             <TextField fx:id="txtMobile" editable="false" layoutX="413.0" layoutY="69.0" />
          </children>
       </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0">
+            <children>
+                <Label layoutX="367.0" layoutY="73.0" prefHeight="25.0" prefWidth="70.0" text="Age: ">
+                    <HBox.margin>
+                        <Insets right="8.0" />
+                    </HBox.margin>
+                </Label>
+                <DatePicker fx:id="datePicker" promptText="dd/mm/yyyy">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </DatePicker>
+            </children>
+        </HBox>
+
+
         <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0">
             <children>
                 <Label layoutX="367.0" layoutY="73.0" prefHeight="25.0" prefWidth="257.0" text="Participant Number:">

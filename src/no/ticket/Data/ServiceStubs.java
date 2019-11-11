@@ -40,7 +40,11 @@ public class ServiceStubs implements Services {
         return users;
     }
 
-    public static void addAdmin(Manager admin){
+    public void addAdmin(Manager admin){
         admins.add(admin);
+    }
+
+    public void addUser(User newUser) {
+        users.add(newUser);
     }
 }

@@ -41,7 +41,9 @@ public class MainJavaFX extends Application {
 
             FXMLLoader fxmlLoader = new FXMLLoader();
 
-            fxmlLoader.setLocation(getClass().getResource("View/Login.fxml"));
+
+            //fxmlLoader.setLocation(getClass().getResource("View/Login.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("View/HovedLayout.fxml"));
 
             Parent hovedLayout = fxmlLoader.load();
 
@@ -127,6 +129,22 @@ public class MainJavaFX extends Application {
             Scene eventScene = new Scene(ticketLayout);
             primaryStage.setScene(eventScene);
             primaryStage.setTitle("Create Event");
+
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setLoginLayout() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("View/Login.fxml"));
+            Parent ticketLayout = fxmlLoader.load();
+
+            Scene eventScene = new Scene(ticketLayout);
+            primaryStage.setScene(eventScene);
+            primaryStage.setTitle("Login");
 
             primaryStage.show();
         } catch (IOException e) {

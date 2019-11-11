@@ -86,6 +86,9 @@ public class HovedLayoutController {
     @FXML
     public void initialize() {
 
+        if (MainJavaFX.getCurrentUser() == null)
+            logOutBtn.setText("Login");
+
         for(Event event : DataHandler.getEventData()){
             if (event.getDate().compareTo(LocalDate.now()) > 0)
                 currentEvents.add(event);
@@ -141,6 +144,7 @@ public class HovedLayoutController {
                 if (newValue != null) {
                     eventDetails(newValue);
                 }
+                buyTicketBtn.setVisible(true);
             }
         });
         pastEventsList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Event>() {
@@ -149,6 +153,7 @@ public class HovedLayoutController {
                 if (newValue != null) {
                     eventDetails(newValue);
                 }
+                buyTicketBtn.setVisible(false);
             }
         });
 
@@ -192,8 +197,7 @@ public class HovedLayoutController {
         logOutBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Stage primaryStage = MainJavaFX.primaryStage;
-                MainJavaFX.getInstance().start(primaryStage);
+                MainJavaFX.getInstance().setLoginLayout();
                 MainJavaFX.setCurrentPerson(null,false);
             }
         });
