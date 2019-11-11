@@ -17,6 +17,8 @@ import no.ticket.Model.Manager;
 import no.ticket.Model.Person;
 import no.ticket.Model.User;
 
+import java.util.ArrayList;
+
 public class LoginController {
     @FXML
     public Button adminButton;
@@ -101,4 +103,6 @@ public class LoginController {
                 }
             }
         }
+
+        //public static void
     }

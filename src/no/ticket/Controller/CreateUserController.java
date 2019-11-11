@@ -27,6 +27,8 @@ public class CreateUserController {
     @FXML
     private TextField name;
 
+    ToggleGroup radioGroup = new ToggleGroup();
+
 
     public void initialize() {
 
@@ -39,10 +41,31 @@ public class CreateUserController {
             }
         });
 
-        ToggleGroup radioGroup = new ToggleGroup();
+        managerRadio.setUserData("0");
+        contestantRadio.setUserData("1");
+
         managerRadio.setToggleGroup(radioGroup);
         contestantRadio.setToggleGroup(radioGroup);
 
+
     }
 
+    public void createUser(ActionEvent actionEvent) {
+        if(name.getText().trim().isEmpty()){
+            System.out.println("Empty");
+
+            
+        } else {
+            switch (radioGroup.getSelectedToggle().getUserData().toString()) {
+                case "0":
+                    System.out.println("Toggle : " + radioGroup.getSelectedToggle().getUserData());
+                    break;
+                case "1":
+                    System.out.println("Toggle : " + radioGroup.getSelectedToggle().getUserData());
+                    break;
+            }
+
+        }
+
+    }
 }
