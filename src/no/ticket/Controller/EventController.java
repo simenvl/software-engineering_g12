@@ -49,7 +49,7 @@ public class EventController {
     private Boolean editNewEvent = false;
 
     ObservableList<User> participantsList = FXCollections.observableArrayList();
-    ArrayList<Event> arrayList = new ArrayList<>();
+    ArrayList<Event> arrayList = DataHandler.getEventList();
 
     @FXML
     public void initialize() {
@@ -96,7 +96,6 @@ public class EventController {
         int capacity = Integer.parseInt(txtCapacity.getText());
         LocalDate date = datePicker.getValue();
         String place = txtLocation.getText();
-        arrayList = DataHandler.getEventList();
 
         int agerestrict = 0, time = 0, price = 0;
 
@@ -135,7 +134,7 @@ public class EventController {
     }
 
     public void btnCloseEvent() {
-        WriteJson.addToJson(arrayList);
+        //WriteJson.addToJson(arrayList);
         MainJavaFX.getInstance().setHovedLayout();
     }
 
@@ -165,7 +164,6 @@ public class EventController {
 
 
     public void btnSaveParticipants(ActionEvent actionEvent) {
-
         String name = txtName.getText();
         String rankTitle = txtRankTitle.getText();
         int rank = Integer.parseInt(txtRankNumber.getText());
@@ -182,7 +180,6 @@ public class EventController {
         }
         participantsList.sort(User::compareTo);
         ParticipantsListView.refresh();
-        WriteJson.addToJson(arrayList);
     }
 
 
