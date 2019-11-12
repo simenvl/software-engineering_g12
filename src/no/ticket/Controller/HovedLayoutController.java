@@ -90,7 +90,7 @@ public class HovedLayoutController {
             logOutBtn.setText("Logout");
 
         for(Event event : DataHandler.getEventData()){
-            if (event.getDate().compareTo(LocalDate.now()) > 0)
+            if (event.getDate().compareTo(LocalDate.now()) >= 0)
                 currentEvents.add(event);
             else
                 pastEvents.add(event);

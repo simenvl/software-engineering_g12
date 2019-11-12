@@ -25,12 +25,12 @@ public class ManagerTest {
     }
 
     @Test
-    void Check(){
+    void check(){
         Assertions.assertEquals(123456, newManagers.get(1).getId());
     }
 
     @Test
-    void CreateAdminUserCheckID() {
+    void createAdminUserCheckID() {
         Manager newManager =  new Manager("admin", "Test", 112233, LocalDate.now(), "hiof.no", 998877);
         newManagers.add(newManager);
         Assertions.assertEquals(112233, newManagers.get(newManagers.size()-1).getId());
