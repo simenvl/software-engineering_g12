@@ -164,6 +164,7 @@ public class EventController {
 
 
     public void btnSaveParticipants(ActionEvent actionEvent) {
+
         String name = txtName.getText();
         String rankTitle = txtRankTitle.getText();
         int rank = Integer.parseInt(txtRankNumber.getText());
@@ -178,7 +179,8 @@ public class EventController {
                 user.setRankNumber(rank);
             }
         }
-
+        participantsList.sorted();
+        ParticipantsListView.refresh();
         WriteJson.addToJson(arrayList);
     }
 
