@@ -99,7 +99,7 @@
                   <HBox prefHeight="3.0" prefWidth="360.0" spacing="5.0">
                      <children>
                         <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" onMouseClicked="#btnAddEvent" text="Ok" />
-                        <Button fx:id="cancelEventCreateBtn" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#btnCloseEvent" text="Cancel" />
+                        <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#btnCloseEvent" text="Cancel" />
                      </children>
                      <padding>
                         <Insets top="20.0" />

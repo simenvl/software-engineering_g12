@@ -135,6 +135,7 @@ public class EventController {
     }
 
     public void btnCloseEvent() {
+        WriteJson.addToJson(arrayList);
         MainJavaFX.getInstance().setHovedLayout();
     }
 
