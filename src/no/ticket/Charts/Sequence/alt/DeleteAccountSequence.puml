@@ -1,0 +1,11 @@
+@startuml
+User -> HovedLayoutView: edit account
+HovedLayoutView -> HovedLayout: edit account
+HovedLayout -> AccountView: change view
+AccountView -> User: change account info
+User -> AccountView: input of changed info
+AccountView -> Account: update info
+Account -> AccountView: update confirmed
+AccountView -> User: your information has been updated
+Account -> Database: store new account info
+@enduml
