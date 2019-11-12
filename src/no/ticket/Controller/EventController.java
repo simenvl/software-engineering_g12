@@ -179,7 +179,7 @@ public class EventController {
                 user.setRankNumber(rank);
             }
         }
-        participantsList.sorted();
+        participantsList.sort(User::compareTo);
         ParticipantsListView.refresh();
         WriteJson.addToJson(arrayList);
     }
