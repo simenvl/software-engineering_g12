@@ -134,7 +134,7 @@ public class EventController {
     }
 
     public void btnCloseEvent() {
-        //WriteJson.addToJson(arrayList);
+        WriteJson.addToJson(arrayList);
         MainJavaFX.getInstance().setHovedLayout();
     }
 
@@ -164,6 +164,7 @@ public class EventController {
 
 
     public void btnSaveParticipants(ActionEvent actionEvent) {
+
         String name = txtName.getText();
         String rankTitle = txtRankTitle.getText();
         int rank = Integer.parseInt(txtRankNumber.getText());
@@ -180,6 +181,7 @@ public class EventController {
         }
         participantsList.sort(User::compareTo);
         ParticipantsListView.refresh();
+        WriteJson.addToJson(arrayList);
     }
 
 

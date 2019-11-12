@@ -42,7 +42,17 @@ public class Event {
 
     @Override
     public String toString() {
-        return title + " - price: " + ((price == 0) ? "FREE" : price + "kr");
+        return title + " - Price: " + price + "kr";
+                /*"Event{" +
+                "EventId=" + eventId +
+                ", ManagerId=" + managerId +
+                ", Title=" + title +
+                ", Date=" + date +
+                ", Agerestrict=" + ageRestrict +
+                ", place='" + place + '\'' +
+                ", Capacity=" + capacity +
+                ", Price=" + price +
+                '}';*/
     }
 
 
