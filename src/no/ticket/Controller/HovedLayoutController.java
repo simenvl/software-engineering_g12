@@ -88,6 +88,8 @@ public class HovedLayoutController {
 
         if (MainJavaFX.getCurrentUser() == null)
             logOutBtn.setText("Login");
+        else
+            logOutBtn.setText("Logout");
 
         for(Event event : DataHandler.getEventData()){
             if (event.getDate().compareTo(LocalDate.now()) > 0)
@@ -203,8 +205,16 @@ public class HovedLayoutController {
         logOutBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if(logOutBtn.getText().equals("Login"))
                 MainJavaFX.getInstance().setLoginLayout();
-                MainJavaFX.setCurrentPerson(null,false);
+                else if (logOutBtn.getText().equals("Logout")){
+                    MainJavaFX.getInstance().setHovedLayout();
+                    MainJavaFX.setCurrentPerson(null,false);
+                    
+                }
+
+
+
             }
         });
     }
