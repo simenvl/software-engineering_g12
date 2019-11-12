@@ -127,6 +127,7 @@ public class EventController {
             eventToBeEdited.setPlace(place);
             eventToBeEdited.setPrice(price);
             eventToBeEdited.setTime(time);
+            eventToBeEdited.setCapacity(capacity);
 
             WriteJson.addToJson(arrayList);
         }
@@ -149,6 +150,7 @@ public class EventController {
             txtDescription.setText(eventToBeEdited.getDescription());
             agePicker.setValue(eventToBeEdited.getAgeRestrict());
             txtLocation.setText(eventToBeEdited.getPlace());
+            txtCapacity.setText(Integer.toString(eventToBeEdited.getCapacity()));
 
             txtPrice.setText(String.valueOf(eventToBeEdited.getPrice()));
             timeOfEvent.setText(String.valueOf(eventToBeEdited.getTime()));
