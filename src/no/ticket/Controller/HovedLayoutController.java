@@ -206,8 +206,9 @@ public class HovedLayoutController {
                 if(logOutBtn.getText().equals("Login"))
                 MainJavaFX.getInstance().setLoginLayout();
                 else if (logOutBtn.getText().equals("Logout")){
-                    MainJavaFX.getInstance().setHovedLayout();
                     MainJavaFX.setCurrentPerson(null,false);
+                    MainJavaFX.getInstance().setHovedLayout();
+
                     
                 }
 
