@@ -30,7 +30,7 @@ public class TicketController {
     @FXML
     private TextField txtMobile;
     @FXML
-    private TextField txtParticipant;
+    private Label txtParticipant;
     @FXML
     private DatePicker datePicker;
 
