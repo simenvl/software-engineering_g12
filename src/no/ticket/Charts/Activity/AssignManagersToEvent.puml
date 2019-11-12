@@ -1,7 +1,7 @@
 @startuml
 (*)  --> "Assign manager to event"
 --> choose event
---> assign manager to event
+--> assign manager to this event
 --> input manager name
 if "check for manager name"
 --> [true] "manager added to event"
