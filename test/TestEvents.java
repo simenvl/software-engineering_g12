@@ -40,4 +40,11 @@ class TestEvents {
         Assertions.assertEquals(20, eventList.get(eventList.size() - 1).getCapacity());
     }
 
+    @Test
+    void DeleteEventCheckSize() {
+        int sizeBeforeDelete = eventList.size() - 1;
+        eventList.remove(event);
+        Assertions.assertEquals(sizeBeforeDelete, eventList.size());
+    }
+
 }
