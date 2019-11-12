@@ -105,9 +105,8 @@ public class TicketController {
                 System.out.println(current.getId() + " " + MainJavaFX.getCurrentUser().getId());
                 if (Integer.valueOf(current.getId()).equals(MainJavaFX.getCurrentUser().getId())) {
                     txtParticipant.setText("You're already signed");
-                    break;
                 } else {
-                    participantNumber = buyTicketEvent.getParticipants() == null ? buyTicketEvent.getParticipants().size() + 1 : 1;
+                    participantNumber = buyTicketEvent.getParticipants().size() == 0 ? 1 : buyTicketEvent.getParticipants().size() + 1;
                     txtParticipant.setText(Integer.toString(participantNumber));
                 }
             }
