@@ -49,7 +49,7 @@ public class EventController {
     private Boolean editNewEvent = false;
 
     ObservableList<User> participantsList = FXCollections.observableArrayList();
-    ArrayList<Event> arrayList = new ArrayList<>();
+    ArrayList<Event> arrayList = DataHandler.getEventList();
 
     @FXML
     public void initialize() {
@@ -96,7 +96,6 @@ public class EventController {
         int capacity = Integer.parseInt(txtCapacity.getText());
         LocalDate date = datePicker.getValue();
         String place = txtLocation.getText();
-        arrayList = DataHandler.getEventList();
 
         int agerestrict = 0, time = 0, price = 0;
 
