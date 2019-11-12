@@ -74,8 +74,6 @@ public class HovedLayoutController {
             "Date descending",
             "Price ascending",
             "Price descending"
-            //, "Capacity ascending",
-            //"Capacity descending"
     );
 
     ObservableList<Event> currentEvents = FXCollections.observableArrayList();

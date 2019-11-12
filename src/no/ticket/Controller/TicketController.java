@@ -104,7 +104,7 @@ public class TicketController {
                     txtParticipant.setText("You're already signed");
                     break;
                 } else {
-                    participantNumber = buyTicketEvent.getParticipants().size() + 1;
+                    participantNumber = buyTicketEvent.getParticipants() == null ? buyTicketEvent.getParticipants().size() + 1 : 1;
                     txtParticipant.setText(Integer.toString(participantNumber));
                 }
             }
@@ -112,7 +112,7 @@ public class TicketController {
             txtName.setEditable(true);
             txtEmail.setEditable(true);
             txtMobile.setEditable(true);
-            participantNumber = buyTicketEvent.getParticipants().size() + 1;
+            participantNumber = buyTicketEvent.getParticipants().size() == 0 ? 1 : buyTicketEvent.getParticipants().size() + 1;
             txtParticipant.setText(Integer.toString(participantNumber));
         }
 

@@ -66,7 +66,7 @@ public class EventController {
                     protected void updateItem(User user, boolean empty) {
                         super.updateItem(user, empty);
                         if (user != null) {
-                            setText(user.getRankNumber() + " - " + user.getName());
+                            setText(user.getRankNumber() + " - " + user.getName() + " " + user.getParticipantNumber());
                         } else {
                             setText("");   // <== clear the now empty cell.
                         }
