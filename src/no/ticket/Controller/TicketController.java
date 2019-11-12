@@ -112,7 +112,7 @@ public class TicketController {
             txtName.setEditable(true);
             txtEmail.setEditable(true);
             txtMobile.setEditable(true);
-            participantNumber = (buyTicketEvent.getParticipants() == null) ? 1 : buyTicketEvent.getParticipants().size() + 1;
+            participantNumber = buyTicketEvent.getParticipants().size() + 1;
             txtParticipant.setText(Integer.toString(participantNumber));
         }
 
