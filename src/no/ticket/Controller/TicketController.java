@@ -30,7 +30,7 @@ public class TicketController {
     @FXML
     private TextField txtMobile;
     @FXML
-    private TextField txtParticipant;
+    private Label txtParticipant;
     @FXML
     private DatePicker datePicker;
 
@@ -52,6 +52,9 @@ public class TicketController {
                     System.out.println("You are not old enough for this event");
                 } else {
                     System.out.println("Ticket bought");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("A confirmation mail has been sendt to: " + MainJavaFX.getCurrentUser().getEmail());
+                    alert.showAndWait();
                     Ticket newTicket = new Ticket (buyTicketEvent, MainJavaFX.getCurrentUser());
                     User newUser = new User(MainJavaFX.getCurrentUser(), participantNumber);
                     buyTicketEvent.addParticipants(newUser);

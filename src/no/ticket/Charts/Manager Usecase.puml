@@ -12,7 +12,7 @@ User -> (Login)
 User -up-> (Create account)
 
 (Login) -> (Edit account)
-
+(Edit account) -> (Delete account)
 rectangle events {
   User -- (Create event)
   User -- (Edit event)
