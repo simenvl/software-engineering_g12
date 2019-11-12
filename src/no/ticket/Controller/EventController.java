@@ -49,6 +49,7 @@ public class EventController {
     private Boolean editNewEvent = false;
 
     ObservableList<User> participantsList = FXCollections.observableArrayList();
+    ArrayList<Event> arrayList = new ArrayList<>();
 
     @FXML
     public void initialize() {
@@ -95,7 +96,7 @@ public class EventController {
         int capacity = Integer.parseInt(txtCapacity.getText());
         LocalDate date = datePicker.getValue();
         String place = txtLocation.getText();
-        ArrayList<Event> arrayList = DataHandler.getEventList();
+        arrayList = DataHandler.getEventList();
 
         int agerestrict = 0, time = 0, price = 0;
 
@@ -161,6 +162,22 @@ public class EventController {
 
 
     public void btnSaveParticipants(ActionEvent actionEvent) {
+        String name = txtName.getText();
+        String rankTitle = txtRankTitle.getText();
+        int rank = Integer.parseInt(txtRankNumber.getText());
+
+        User selectedUser = ParticipantsListView.getSelectionModel().getSelectedItem();
+        selectedUser.setParticipantNumber(rank);
+        selectedUser.setRank(rankTitle);
+
+        for (User user : eventToBeEdited.getParticipants()){
+            if (user.getName().equals(name)){
+                user.setRank(rankTitle);
+                user.setRankNumber(rank);
+            }
+        }
+
+        WriteJson.addToJson(arrayList);
     }
 
 

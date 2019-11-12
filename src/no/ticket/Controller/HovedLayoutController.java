@@ -230,9 +230,8 @@ public class HovedLayoutController {
     }
 
     public void newEvent(ActionEvent actionEvent) {
-        //Event newEvent = new Event();
-
-       // MainJavaFX.getInstance().setEventLayout(newEvent);
+        Event newEvent = new Event();
+        MainJavaFX.getInstance().setEventLayout(newEvent);
     }
 
 
