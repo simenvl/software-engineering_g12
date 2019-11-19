@@ -1,10 +1,5 @@
 package gruppe12.Controller;
 
-import gruppe12.Data.DataHandler;
-import gruppe12.Json.WriteJson;
-import gruppe12.MainJavaFX;
-import gruppe12.Model.Event;
-import gruppe12.Model.User;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -14,6 +9,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
+import gruppe12.Data.DataHandler;
+import gruppe12.Json.WriteJson;
+import gruppe12.MainJavaFX;
+import gruppe12.Model.Event;
+import gruppe12.Model.User;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

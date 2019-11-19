@@ -1,5 +1,9 @@
-package gruppe12.Controller;
+package gruppe12;
 
+import gruppe12.Data.DataHandler;
+import gruppe12.Json.WriteJson;
+import gruppe12.Model.Event;
+import gruppe12.Model.Person;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -9,12 +13,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import gruppe12.Data.DataHandler;
-import gruppe12.Json.WriteJson;
-import gruppe12.MainJavaFX;
-import gruppe12.Model.Event;
-import gruppe12.Model.Person;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

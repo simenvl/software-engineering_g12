@@ -1,13 +1,14 @@
 package gruppe12.Controller;
 
-import gruppe12.Data.DataHandler;
-import gruppe12.Json.WriteJson;
-import gruppe12.MainJavaFX;
-import gruppe12.Model.Event;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import gruppe12.Data.DataHandler;
+import gruppe12.Json.WriteJson;
+import gruppe12.MainJavaFX;
+import gruppe12.Model.Event;
+import gruppe12.Model.Person;
 import gruppe12.Model.Ticket;
 import gruppe12.Model.User;
 
@@ -68,7 +69,7 @@ public class TicketController {
                         new Ticket(buyTicketEvent, newCustomer);
 
                         //new AlertBox("Confirmation", "A mail has been sent to " + txtEmail.getText(), "", 2);
-                        gruppe12.MainJavaFX.getInstance().setHovedLayout();
+                        MainJavaFX.getInstance().setHovedLayout();
 
                         ArrayList<Event> arrayList = DataHandler.getEventList();
                         WriteJson.addToJson(arrayList);

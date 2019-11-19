@@ -1,19 +1,19 @@
 @startuml
-Manager -> gruppe12.View: [click] new event
-gruppe12.View -> HovedLayout: newEvent()
+Manager -> View: [click] new event
+View -> HovedLayout: newEvent()
 HovedLayout -> EventLayout: changeView()
-EventLayout -> gruppe12.View: this = view
-gruppe12.View --> Manager: input event info
-Manager -> gruppe12.View: [input] event info
-gruppe12.View -> EventLayout: createEvent()
+EventLayout -> View: this = view
+View --> Manager: input event info
+Manager -> View: [input] event info
+View -> EventLayout: createEvent()
 alt event successfully created
 EventLayout -> Database: storeEvent()
-EventLayout -> gruppe12.View: [message] success
-gruppe12.View -> Manager: event created
+EventLayout -> View: [message] success
+View -> Manager: event created
 Database -> EventList: updateEventList()
 else failed to create event
 EventLayout -> EventLayout: error
-EventLayout -> gruppe12.View: [message] error
-gruppe12.View -> Manager: event creation failed
+EventLayout -> View: [message] error
+View -> Manager: event creation failed
 end
 @enduml

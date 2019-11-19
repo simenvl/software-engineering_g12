@@ -18,7 +18,7 @@ rectangle events {
   User -- (Edit event)
   User -- (Delete event)
   User -- (Blacklist user from event)
-  User -- (gruppe12.View event status)
+  User -- (View event status)
   User -- (Assign managers to event)
 }
 @enduml

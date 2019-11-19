@@ -1,8 +1,8 @@
 @startuml
-User -> gruppe12.View: [click] sortBy(method)
-gruppe12.View -> HovedLayout: sortByRequest()
+User -> View: [click] sortBy(method)
+View -> HovedLayout: sortByRequest()
 HovedLayout -> EventList: EventList.sortBy(method)
 EventList -> HovedLayout: return EventList()
-HovedLayout -> gruppe12.View: showEventList()
-gruppe12.View -> User: sorted list info
+HovedLayout -> View: showEventList()
+View -> User: sorted list info
 @enduml

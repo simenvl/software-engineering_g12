@@ -1,8 +1,5 @@
 package gruppe12.Controller;
 
-import gruppe12.Data.ServiceStubs;
-import gruppe12.MainJavaFX;
-import gruppe12.Model.Manager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,7 +8,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.layout.AnchorPane;
+import gruppe12.Data.ServiceStubs;
+import gruppe12.MainJavaFX;
+import gruppe12.Model.Manager;
+import gruppe12.Model.Person;
 import gruppe12.Model.User;
+
+import java.util.ArrayList;
 
 public class LoginController {
     @FXML

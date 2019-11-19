@@ -1,12 +1,12 @@
 package gruppe12.Model;
 
-import java.time.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
 public class Event {
 
-    private static int eventId;
+    private static int eventId = 1000;
     private String description;
     private int managerId;
     private String title;
@@ -20,7 +20,7 @@ public class Event {
 
 
     public Event() {
-
+        eventId++;
     }
 
     public Event(String title, LocalDate date, int managerId, int agerestrict, String place, int price, String description, int time, int capacity) {
@@ -33,6 +33,7 @@ public class Event {
         this.description = description;
         this.time = time;
         this.capacity = capacity;
+        eventId++;
     }
 
     @Override

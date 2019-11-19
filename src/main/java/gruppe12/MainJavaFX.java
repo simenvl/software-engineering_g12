@@ -1,11 +1,5 @@
 package gruppe12;
 
-import gruppe12.Controller.EventController;
-import gruppe12.Controller.TicketController;
-import gruppe12.Data.ServiceStubs;
-import gruppe12.Model.Event;
-import gruppe12.Model.Person;
-
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import gruppe12.Controller.EventController;
+import gruppe12.Controller.TicketController;
+import gruppe12.Data.ServiceStubs;
+import gruppe12.Model.Event;
+import gruppe12.Model.Person;
 import java.io.IOException;
 
 public class MainJavaFX extends Application {
@@ -25,6 +24,8 @@ public class MainJavaFX extends Application {
     private static boolean isCurrentUserAdmin = false;
     private static boolean firstStartUp = false;
 
+    private static Scene scene;
+
     @Override
     public void start(Stage primaryStage) {
 
@@ -35,13 +36,12 @@ public class MainJavaFX extends Application {
 
         mainJavaFX = this;
         try{
-            this.primaryStage = primaryStage;
+            MainJavaFX.primaryStage = primaryStage;
 
+/*
             FXMLLoader fxmlLoader = new FXMLLoader();
 
-
-            //fxmlLoader.setLocation(getClass().getResource("gruppe12.View/Login.fxml"));
-            fxmlLoader.setLocation(getClass().getResource("gruppe12/View/HovedLayout.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("hovedLayout.fxml"));
 
             Parent hovedLayout = fxmlLoader.load();
 
@@ -50,12 +50,26 @@ public class MainJavaFX extends Application {
             primaryStage.setScene(hovedScene);
 
             primaryStage.show();
+
+*/
+            scene = new Scene(loadFXML("hovedLayout"));
+            primaryStage.setScene(scene);
+            primaryStage.show();
         }
         catch(IOException e){
             e.printStackTrace();
         }
 
 
+    }
+
+    static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
+    }
+
+    private static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
     }
 
     public static  MainJavaFX getInstance(){
@@ -84,7 +98,7 @@ public class MainJavaFX extends Application {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader();
 
-            fxmlLoader.setLocation(getClass().getResource("gruppe12/View/HovedLayout.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("View/HovedLayout.fxml"));
 
             Parent hovedLayout = fxmlLoader.load();
 
@@ -101,7 +115,7 @@ public class MainJavaFX extends Application {
     public void setEventLayout(Event eventToBeEdited) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("gruppe12/View/EventLayout.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("View/EventLayout.fxml"));
             Parent ticketLayout = fxmlLoader.load();
 
             Scene eventScene = new Scene(ticketLayout);
@@ -121,7 +135,7 @@ public class MainJavaFX extends Application {
     public void setNewEventLayout() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("gruppe12/View/EventLayout.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("View/EventLayout.fxml"));
             Parent ticketLayout = fxmlLoader.load();
 
             Scene eventScene = new Scene(ticketLayout);
@@ -137,7 +151,7 @@ public class MainJavaFX extends Application {
     public void setLoginLayout() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("gruppe12/View/Login.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("View/Login.fxml"));
             Parent ticketLayout = fxmlLoader.load();
 
             Scene eventScene = new Scene(ticketLayout);
@@ -155,7 +169,7 @@ public class MainJavaFX extends Application {
         try{
 
             FXMLLoader fxmlLoader= new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("gruppe12/View/TicketLayout.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("View/TicketLayout.fxml"));
 
             Parent ticketLayout = fxmlLoader.load();
             Scene ticketScene= new Scene(ticketLayout, 300,300);
@@ -180,7 +194,7 @@ public class MainJavaFX extends Application {
     public void setCreateUserLayout() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("gruppe12/View/CreateUser.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("View/CreateUser.fxml"));
             Parent createUser = fxmlLoader.load();
 
             Scene createUserScene = new Scene(createUser);
@@ -189,6 +203,10 @@ public class MainJavaFX extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 
 }

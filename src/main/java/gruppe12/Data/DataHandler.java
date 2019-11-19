@@ -1,9 +1,9 @@
 package gruppe12.Data;
 
-import gruppe12.Model.Event;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import gruppe12.Json.ReadJson;
+import gruppe12.Model.Event;
 
 import java.util.ArrayList;
 

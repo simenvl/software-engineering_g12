@@ -1,10 +1,10 @@
 @startuml
-User -> gruppe12.View: [click] delete account
-gruppe12.View -> Account: deleteAccountRequest()
-gruppe12.View --> User: type password
-User -> gruppe12.View: [input] password
-gruppe12.View -> Account: deleteAccount()
+User -> View: [click] delete account
+View -> Account: deleteAccountRequest()
+View --> User: type password
+User -> View: [input] password
+View -> Account: deleteAccount()
 Account -> Database: deleteInDatabase()
-Account -> gruppe12.View: [message] delete performed
-gruppe12.View -> User: your account have been deleted, you'll be logged out
+Account -> View: [message] delete performed
+View -> User: your account have been deleted, you'll be logged out
 @enduml

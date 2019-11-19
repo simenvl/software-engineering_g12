@@ -1,8 +1,5 @@
 package gruppe12.Controller;
 
-import gruppe12.Data.ServiceStubs;
-import gruppe12.MainJavaFX;
-import gruppe12.Model.Manager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -10,6 +7,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import gruppe12.Data.ServiceStubs;
+import gruppe12.MainJavaFX;
+import gruppe12.Model.Manager;
 import gruppe12.Model.User;
 
 import java.time.LocalDate;

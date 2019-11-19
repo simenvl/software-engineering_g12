@@ -1,9 +1,9 @@
 package gruppe12.Json;
 
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import gruppe12.Model.Event;
+
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
