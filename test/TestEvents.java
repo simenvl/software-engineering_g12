@@ -28,16 +28,27 @@ class TestEvents {
     }
 
     @Test
-    void EditEventCheckTitle() {
+    void createNewEventChecklist(){
+
+    }
+
+    @Test
+    void editEventCheckTitle() {
         eventList.get(0).setTitle("New Title");
         Assertions.assertEquals("New Title", eventList.get(0).getTitle());
     }
 
     @Test
-    void CheckRemainingSpots() {
+    void deleteEventCheckSize() {
+
+    }
+
+    @Test
+    void checkRemainingSpots() {
         event.addParticipants(testson);
         Assertions.assertEquals(119, event.getCapacity());
         Assertions.assertEquals(20, eventList.get(eventList.size() - 1).getCapacity());
     }
+
 
 }
