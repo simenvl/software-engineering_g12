@@ -88,7 +88,7 @@ public class EventController {
 
     }
 
-    public void btnAddEvent(ActionEvent mouseEvent) {
+    public void btnAddEvent(ActionEvent mouseEvent) throws IOException {
 
         String title = txtTitle.getText();
         String description = txtDescription.getText();
@@ -129,7 +129,7 @@ public class EventController {
 
             WriteJson.addToJson(arrayList);
         }
-        MainJavaFX.getInstance().setHovedLayout();
+        MainJavaFX.setRoot("HovedLayout");
     }
 
     public void btnCloseEvent() throws IOException {

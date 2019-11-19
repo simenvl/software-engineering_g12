@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import static gruppe12.MainJavaFX.setRoot;
+import static gruppe12.MainJavaFX.setSelectedEvent;
+
 
 public class HovedLayoutController {
 
@@ -64,7 +67,6 @@ public class HovedLayoutController {
     @FXML
     private ListView<Event> pastEventsList;
 
-    private Person person;
 
     ObservableList<String> sortMethods = FXCollections.observableArrayList(
             "Alfabetical ascending",
@@ -162,53 +164,6 @@ public class HovedLayoutController {
 
         });
 
-        editEvent.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Event editEvent = eventListView.getSelectionModel().getSelectedItem();
-
-                // Sjekker om eventet inneholder info
-                if (editEvent != null) {
-                    MainJavaFX.getInstance().setEventLayout(editEvent);
-
-
-                } else {
-
-                }
-            }
-        });
-
-        newEvent.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                newEvent(event);
-                MainJavaFX.getInstance().setNewEventLayout();
-            }
-        });
-
-        buyTicketBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-            }
-        });
-
-        logOutBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if(logOutBtn.getText().equals("Login"))
-                MainJavaFX.getInstance().setLoginLayout();
-                else if (logOutBtn.getText().equals("Logout")){
-                    MainJavaFX.setCurrentPerson(null,false);
-                    MainJavaFX.getInstance().setHovedLayout();
-
-                    
-                }
-
-
-
-            }
-        });
     }
 
     private void eventDetails(Event event) {
@@ -231,10 +186,6 @@ public class HovedLayoutController {
             newEvent.setVisible(true);
     }
 
-    public void newEvent(ActionEvent actionEvent) {
-        Event newEvent = new Event();
-        MainJavaFX.getInstance().setEventLayout(newEvent);
-    }
 
 
     public void onClickDelete(ActionEvent actionEvent) {
@@ -253,9 +204,36 @@ public class HovedLayoutController {
         Event buyTicket = eventListView.getSelectionModel().getSelectedItem();
 
         if (buyTicket != null) {
-                MainJavaFX.setRoot("TicketLayout");
+            setSelectedEvent(buyTicket);
+            setRoot("TicketLayout");
         } else {
             System.out.println("No event selected");
+        }
+    }
+
+    public void switchToEventLayout(ActionEvent actionEvent) throws IOException {
+        MainJavaFX.setSelectedEvent(null);
+        setRoot("EventLayout");
+    }
+
+    public void switchToEditEventLayout(ActionEvent actionEvent) throws IOException {
+        Event editEvent = eventListView.getSelectionModel().getSelectedItem();
+
+        // Sjekker om eventet inneholder info
+        if (editEvent != null) {
+            MainJavaFX.setSelectedEvent(editEvent);
+            setRoot("EventLayout");
+        } else {
+
+        }
+    }
+
+    public void switchToLogout(ActionEvent actionEvent) throws IOException {
+        if(logOutBtn.getText().equals("Login"))
+            setRoot("Login");
+        else if (logOutBtn.getText().equals("Logout")){
+            MainJavaFX.setCurrentPerson(null,false);
+            setRoot("HovedLayout");
         }
     }
 }

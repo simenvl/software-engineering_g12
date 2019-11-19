@@ -44,8 +44,6 @@ public class MainJavaFX extends Application {
         catch(IOException e){
             e.printStackTrace();
         }
-
-
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -62,7 +60,7 @@ public class MainJavaFX extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJavaFX.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
@@ -87,65 +85,6 @@ public class MainJavaFX extends Application {
         return isCurrentUserAdmin;
     }
 
-
-    public void setHovedLayout() {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader();
-
-            fxmlLoader.setLocation(getClass().getResource("View/HovedLayout.fxml"));
-
-            Parent hovedLayout = fxmlLoader.load();
-
-            Scene hovedScene = new Scene(hovedLayout);
-
-            primaryStage.setScene(hovedScene);
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
-    }
-
-
-    public void setEventLayout(Event eventToBeEdited) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EventLayout.fxml"));
-            Parent ticketLayout = fxmlLoader.load();
-
-            scene.setRoot(ticketLayout);
-
-            EventController eventController = fxmlLoader.getController();
-            eventController.setEventToBeEdited(eventToBeEdited);
-
-            primaryStage.setScene(scene);
-            primaryStage.sizeToScene();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setNewEventLayout() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("View/EventLayout.fxml"));
-            Parent ticketLayout = fxmlLoader.load();
-
-            Scene eventScene = new Scene(ticketLayout);
-            primaryStage.setScene(eventScene);
-            primaryStage.setTitle("Create Event");
-
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setLoginLayout() {
-        try {
-            setRoot("Login");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void main(String[] args) {
         launch();

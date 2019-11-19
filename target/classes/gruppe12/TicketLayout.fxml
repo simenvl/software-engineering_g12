@@ -79,8 +79,8 @@
         </HBox>
       <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
-              <Button fx:id="buy" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Buy" />
-            <Button fx:id="cancelBuyTicketBtn" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnCancelTicket" text="Cancel" />
+              <Button fx:id="buy" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Buy" onAction="#btnBuyEvent" />
+            <Button fx:id="cancelBuyTicketBtn" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToHovedLayout" text="Cancel" />
          </children>
       </HBox>
     </VBox>
