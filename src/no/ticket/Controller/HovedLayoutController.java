@@ -246,8 +246,9 @@ public class HovedLayoutController {
 
     public void onClickDelete(ActionEvent actionEvent) {
         Event selectedEvent = eventListView.getSelectionModel().getSelectedItem();
-        eventListView.refresh();
+        currentEvents.remove(selectedEvent);
         WriteJson.addToJson(deleteEventFromList(selectedEvent, listWithEvents));
+        eventListView.refresh();
     }
 
     static public ArrayList<Event> deleteEventFromList(Event selectedEvent, List<Event> list) {
