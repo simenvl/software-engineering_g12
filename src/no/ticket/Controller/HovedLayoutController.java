@@ -142,7 +142,7 @@ public class HovedLayoutController {
             @Override
             public void changed(ObservableValue<? extends Event> observable, Event oldValue, Event newValue) {
                 if (!pastEventsList.getSelectionModel().isEmpty())
-                    pastEventsList.getSelectionModel().clearSelection(0); // INdex out of bound... JavaFX
+                    pastEventsList.getSelectionModel().clearSelection(0); // Index out of bound... JavaFX
 
                 if (newValue != null) {
                     eventDetails(newValue);
@@ -247,11 +247,13 @@ public class HovedLayoutController {
     public void onClickDelete(ActionEvent actionEvent) {
         Event selectedEvent = eventListView.getSelectionModel().getSelectedItem();
         currentEvents.remove(selectedEvent);
-        WriteJson.addToJson(deleteEventFromList(selectedEvent, listWithEvents));
         eventListView.refresh();
+        WriteJson.addToJson(deleteEventFromList(selectedEvent, listWithEvents));
+
     }
 
-    static public ArrayList<Event> deleteEventFromList(Event selectedEvent, List<Event> list) {
+    public static ArrayList<Event> deleteEventFromList(Event selectedEvent, List<Event> list) {
+
         list.remove(selectedEvent);
         ArrayList<Event> eventList = new ArrayList<>(list);
         return eventList;

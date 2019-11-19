@@ -27,22 +27,24 @@ public class UserTest {
     }
 
     @Test
-    void createNewUserCheckID() {
-        Manager newManager = new Manager("Admin", "Test", 112233, LocalDate.now(), "test@test.com", 998877);
-        database.addAdmin(newManager);
+    void createNewUsersCheckID() {
         User newUser = new User("Testson", LocalDate.now(), "test@hiof.no", 99887766);
+        User newUser2 = new User("Testson", LocalDate.now(), "test@hiof.no", 99887766);
         database.addUser(newUser);
-        Assertions.assertEquals(112233, database.getAdmins().get(2).getId());
+        database.addUser(newUser2);
+
         Assertions.assertEquals(220000, database.getUsers().get(5).getId());
+        Assertions.assertEquals(220001, database.getUsers().get(6).getId());
     }
 
     @Test
-    void checkIfEventHasCorrectManager() {
-        Assertions.assertEquals(123456, database.getAdmins().get(1).getId());
+    void userJoinsEvent() {
+        Event event = new Event();
+        event.setCapacity(1);
+        User newUser = new User(newUsers.get(0), 1);
+        event.addParticipants(newUser);
+        assertEquals(0, event.getCapacity());
     }
 
-    @Test
-    void managerCreatesEvent() {
-        newEvent.addParticipants(newUsers.get(0));
-    }
+
 }

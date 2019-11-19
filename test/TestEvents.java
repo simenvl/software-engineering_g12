@@ -1,4 +1,5 @@
 
+import no.ticket.Controller.HovedLayoutController;
 import no.ticket.Data.DataHandler;
 import no.ticket.Json.WriteJson;
 import no.ticket.MainJavaFX;
@@ -51,13 +52,17 @@ class TestEvents {
     @Test
     void deleteEventCheckSize() {
         int sizeBeforeDelete = eventList.size() - 1;
-        eventList.remove(event);
+        HovedLayoutController.deleteEventFromList(event, eventList);
         Assertions.assertEquals(sizeBeforeDelete, eventList.size());
     }
 
+
+
     @Test
     void checkIfEventIsPassed() {
-
+        // negativ om datoen er passert, 0 er samme dato. Forventer da 0
+        int eventTime = event.getDate().compareTo(LocalDate.now());
+        Assertions.assertEquals(0, eventTime);
     }
 
 }
