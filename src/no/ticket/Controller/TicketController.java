@@ -61,6 +61,7 @@ public class TicketController {
 
                     ArrayList<Event> arrayList = DataHandler.getEventList();
                     WriteJson.addToJson(arrayList);
+                    MainJavaFX.getInstance().setHovedLayout();
                     //User newCustomer = new User(name,1000, date, email, phone, position);
 
                     /*
