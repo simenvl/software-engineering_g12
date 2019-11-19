@@ -63,7 +63,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="cancelBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Cancel" textAlignment="CENTER">
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Cancel" textAlignment="CENTER" onAction="#switchToLogin">
                                  <HBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </HBox.margin>
