@@ -1,0 +1,25 @@
+@startuml
+User -> gruppe12.View: [click] select event
+gruppe12.View -> HovedLayout: eventSelected()
+HovedLayout -> EventList: getSelectedEvent
+EventList -> HovedLayout: return event()
+HovedLayout -> gruppe12.View: showEvent()
+User -> gruppe12.View: [click] join event
+gruppe12.View -> HovedLayout: joinEventRequest()
+HovedLayout -> TicketLayout: change view
+TicketLayout -> gruppe12.View: this = view
+gruppe12.View --> User: input user info
+User -> gruppe12.View: [input] user info
+gruppe12.View -> TicketLayout: joinEvent()
+alt payment required
+TicketLayout -> PaymentAPI: open payment portal
+PaymentAPI --> User: require payment method
+User -> PaymentAPI: [action] payment performed
+PaymentAPI -> TicketLayout: payment successful
+TicketLayout -> gruppe12.View: [message] successful
+gruppe12.View -> User: user joined event
+else payment not required
+TicketLayout -> gruppe12.View: [message] successful
+gruppe12.View -> User: user joined event
+end
+@enduml
