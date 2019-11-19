@@ -21,7 +21,9 @@ public class MainJavaFX extends Application {
     private static boolean isCurrentUserAdmin = false;
     private static boolean firstStartUp = false;
 
+    private static Event selectedEvent;
     private static Scene scene;
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -48,6 +50,15 @@ public class MainJavaFX extends Application {
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
+        primaryStage.sizeToScene();
+    }
+
+    static void setSelectedEvent(Event event){
+        selectedEvent = event;
+    }
+
+    static Event getSelectedEvent() {
+        return selectedEvent;
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -97,19 +108,16 @@ public class MainJavaFX extends Application {
 
     public void setEventLayout(Event eventToBeEdited) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("View/EventLayout.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EventLayout.fxml"));
             Parent ticketLayout = fxmlLoader.load();
 
-            Scene eventScene = new Scene(ticketLayout);
-            primaryStage.setScene(eventScene);
-            primaryStage.setTitle("Edit Event");
+            scene.setRoot(ticketLayout);
 
             EventController eventController = fxmlLoader.getController();
-
             eventController.setEventToBeEdited(eventToBeEdited);
 
-            primaryStage.show();
+            primaryStage.setScene(scene);
+            primaryStage.sizeToScene();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -133,56 +141,7 @@ public class MainJavaFX extends Application {
 
     public void setLoginLayout() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("View/Login.fxml"));
-            Parent ticketLayout = fxmlLoader.load();
-
-            Scene eventScene = new Scene(ticketLayout);
-            primaryStage.setScene(eventScene);
-            primaryStage.setTitle("Login");
-
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setTicketLayout(Event ticketEvent){
-
-        try{
-
-            FXMLLoader fxmlLoader= new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("View/TicketLayout.fxml"));
-
-            Parent ticketLayout = fxmlLoader.load();
-            Scene ticketScene= new Scene(ticketLayout, 300,300);
-
-            primaryStage.setScene(ticketScene);
-            primaryStage.setTitle("Make Tickets");
-            primaryStage.show();
-
-            TicketController ticketController= fxmlLoader.getController();
-
-            ticketController.setEventToAddTicket(ticketEvent);
-
-
-        }
-        catch(IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    public void setCreateUserLayout() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("View/CreateUser.fxml"));
-            Parent createUser = fxmlLoader.load();
-
-            Scene createUserScene = new Scene(createUser);
-            primaryStage.setScene(createUserScene);
-            primaryStage.setTitle("Create User");
+            setRoot("Login");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -8,14 +8,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.layout.AnchorPane;
 import gruppe12.Data.ServiceStubs;
 import gruppe12.MainJavaFX;
 import gruppe12.Model.Manager;
 import gruppe12.Model.Person;
 import gruppe12.Model.User;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LoginController {
@@ -46,13 +45,21 @@ public class LoginController {
          adminButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                onClick(true);
+                try {
+                    onClick(true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
          });
          userButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                onClick(false);
+                try {
+                    onClick(false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
          });
 
@@ -65,7 +72,11 @@ public class LoginController {
         creatuserBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                MainJavaFX.getInstance().setCreateUserLayout();
+                try {
+                    MainJavaFX.setRoot("CreateUser");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -75,13 +86,13 @@ public class LoginController {
 
     }
 
-    public void onClick(boolean ifAdmin){
+    public void onClick(boolean ifAdmin) throws IOException {
         //her blir verdien som ble tastet inn sendt videre om den matcher med ID-en til en manager
             if (ifAdmin) {
                 for (Manager admin : database.getAdmins()) {
                     if (Integer.toString(admin.getId()).equals(Integer.toString(comboAdmin.getValue().getId()))){
                         MainJavaFX.setCurrentPerson(admin, true);
-                        MainJavaFX.getInstance().setHovedLayout();
+                        MainJavaFX.setRoot("HovedLayout");
                     } else {
                         messageLabel.setText("Wrong admin ID!");
                     }
@@ -90,7 +101,7 @@ public class LoginController {
                 for (User guest : database.getUsers()) {
                     if (Integer.valueOf(guest.getId()).equals(comboUser.getValue().getId())){
                         MainJavaFX.setCurrentPerson(guest, false);
-                        MainJavaFX.getInstance().setHovedLayout();
+                        MainJavaFX.setRoot("HovedLayout");
                     } else {
                         messageLabel.setText("Wrong user ID!");
                     }

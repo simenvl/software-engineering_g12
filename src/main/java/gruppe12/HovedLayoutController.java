@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -188,13 +189,7 @@ public class HovedLayoutController {
         buyTicketBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Event buyTicket = eventListView.getSelectionModel().getSelectedItem();
 
-                if (buyTicket != null) {
-                    MainJavaFX.getInstance().setTicketLayout(buyTicket);
-                } else {
-
-                }
             }
         });
 
@@ -254,4 +249,13 @@ public class HovedLayoutController {
         return eventList;
     }
 
+    public void switchToTicketLayout(ActionEvent actionEvent) throws IOException {
+        Event buyTicket = eventListView.getSelectionModel().getSelectedItem();
+
+        if (buyTicket != null) {
+                MainJavaFX.setRoot("TicketLayout");
+        } else {
+            System.out.println("No event selected");
+        }
+    }
 }

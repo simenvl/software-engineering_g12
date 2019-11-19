@@ -1,10 +1,10 @@
 
-import no.ticket.Controller.HovedLayoutController;
-import no.ticket.Data.DataHandler;
-import no.ticket.Json.WriteJson;
-import no.ticket.MainJavaFX;
-import no.ticket.Model.User;
-import no.ticket.Model.Event;
+import gruppe12.HovedLayoutController;
+import gruppe12.Data.DataHandler;
+import gruppe12.Json.WriteJson;
+import gruppe12.MainJavaFX;
+import gruppe12.Model.User;
+import gruppe12.Model.Event;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

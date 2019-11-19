@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="270.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gruppe12.TicketController">
+    <VBox alignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <HBox alignment="CENTER">
+            <Label fx:id="eventTitle" alignment="CENTER" layoutX="413.0" layoutY="28.0" prefHeight="34.0" text="Test">
+                <font>
+                    <Font size="24.0" />
+                </font>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER">
+
+            <Label layoutX="367.0" layoutY="73.0" prefHeight="25.0" prefWidth="70.0" text="Name:">
+                <HBox.margin>
+                    <Insets right="8.0" />
+                </HBox.margin>
+            </Label>
+            <TextField fx:id="txtName" editable="false" layoutX="413.0" layoutY="69.0" />
+        </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="51.0">
+         <children>
+            <Label layoutX="367.0" layoutY="73.0" prefHeight="25.0" prefWidth="70.0" text="Email:">
+               <HBox.margin>
+                  <Insets right="8.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="txtEmail" editable="false" layoutX="413.0" layoutY="69.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0">
+         <children>
+            <Label layoutX="367.0" layoutY="73.0" prefHeight="25.0" prefWidth="70.0" text="Mobil:">
+               <HBox.margin>
+                  <Insets right="8.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="txtMobile" editable="false" layoutX="413.0" layoutY="69.0" />
+         </children>
+      </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0">
+            <children>
+                <Label layoutX="367.0" layoutY="73.0" prefHeight="25.0" prefWidth="70.0" text="Age: ">
+                    <HBox.margin>
+                        <Insets right="8.0" />
+                    </HBox.margin>
+                </Label>
+                <DatePicker fx:id="datePicker" promptText="dd/mm/yyyy">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </DatePicker>
+            </children>
+        </HBox>
+
+
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0">
+            <children>
+                <Label layoutX="367.0" layoutY="73.0" prefHeight="25.0" prefWidth="257.0" text="Participant Number:">
+                    <HBox.margin>
+                        <Insets right="8.0" />
+                    </HBox.margin>
+                </Label>
+            <Label fx:id="txtParticipant" prefHeight="17.0" prefWidth="290.0" />
+            </children>
+        </HBox>
+      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+         <children>
+              <Button fx:id="buy" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Buy" />
+            <Button fx:id="cancelBuyTicketBtn" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnCancelTicket" text="Cancel" />
+         </children>
+      </HBox>
+    </VBox>
+</AnchorPane>

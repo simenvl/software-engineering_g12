@@ -7,14 +7,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import gruppe12.Data.DataHandler;
 import gruppe12.Json.WriteJson;
-import gruppe12.MainJavaFX;
 import gruppe12.Model.Event;
 import gruppe12.Model.User;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -89,7 +88,7 @@ public class EventController {
 
     }
 
-    public void btnAddEvent(MouseEvent mouseEvent) {
+    public void btnAddEvent(ActionEvent mouseEvent) {
 
         String title = txtTitle.getText();
         String description = txtDescription.getText();
@@ -133,9 +132,9 @@ public class EventController {
         MainJavaFX.getInstance().setHovedLayout();
     }
 
-    public void btnCloseEvent() {
+    public void btnCloseEvent() throws IOException {
         WriteJson.addToJson(arrayList);
-        MainJavaFX.getInstance().setHovedLayout();
+        MainJavaFX.setRoot("HovedLayout");
     }
 
     public void setEventToBeEdited(Event eventToBeEdited) {

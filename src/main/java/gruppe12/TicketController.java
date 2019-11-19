@@ -42,6 +42,9 @@ public class TicketController {
     @FXML
     public void initialize() {
 
+        if (MainJavaFX.getSelectedEvent() != null)
+            setEventToAddTicket(MainJavaFX.getSelectedEvent());
+
         buy.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -62,24 +65,6 @@ public class TicketController {
                     ArrayList<Event> arrayList = DataHandler.getEventList();
                     WriteJson.addToJson(arrayList);
                     MainJavaFX.getInstance().setHovedLayout();
-                    //User newCustomer = new User(name,1000, date, email, phone, position);
-
-                    /*
-                    if (buyTicketEvent.getSeats(seatN, rowN) == 0) {
-                        new Ticket(buyTicketEvent, newCustomer);
-
-                        //new AlertBox("Confirmation", "A mail has been sent to " + txtEmail.getText(), "", 2);
-                        MainJavaFX.getInstance().setHovedLayout();
-
-                        ArrayList<Event> arrayList = DataHandler.getEventList();
-                        WriteJson.addToJson(arrayList);
-
-                        buyTicketEvent.printSeats();
-                    } else {
-                        System.out.println("Your number has been taken");
-                        //new AlertBox("Error", "Your seat has been taken, please choose another one", "", 2);
-                    }*/
-
 
                 }
 

@@ -1,8 +1,6 @@
-import no.ticket.Data.ServiceStubs;
-import no.ticket.MainJavaFX;
-import no.ticket.Model.Event;
-import no.ticket.Model.Manager;
-import no.ticket.Model.User;
+import gruppe12.Data.ServiceStubs;
+import gruppe12.MainJavaFX;
+import gruppe12.Model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
