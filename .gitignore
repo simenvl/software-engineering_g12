@@ -17,11 +17,11 @@
 *.zip
 *.tar.gz
 *.rar
-*.xml
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
 .idea/workspace.xml
+.idea/*
 eventgruppe12.json
-.idea/misc.xml
-lib/opentest4j-1.2.0.jar
+
