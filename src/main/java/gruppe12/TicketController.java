@@ -1,4 +1,4 @@
-package gruppe12.Controller;
+package gruppe12;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

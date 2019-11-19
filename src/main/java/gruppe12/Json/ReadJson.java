@@ -1,7 +1,7 @@
 package gruppe12.Json;
 
 import com.google.gson.Gson;
-import gruppe12.Model.Event;
+import gruppe12.Model.*;
 
 
 import java.io.FileReader;

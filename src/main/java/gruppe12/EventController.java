@@ -1,4 +1,4 @@
-package gruppe12.Controller;
+package gruppe12;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

@@ -7,11 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import gruppe12.Controller.EventController;
-import gruppe12.Controller.TicketController;
 import gruppe12.Data.ServiceStubs;
-import gruppe12.Model.Event;
-import gruppe12.Model.Person;
+import gruppe12.Model.*;
 import java.io.IOException;
 
 public class MainJavaFX extends Application {
@@ -38,20 +35,6 @@ public class MainJavaFX extends Application {
         try{
             MainJavaFX.primaryStage = primaryStage;
 
-/*
-            FXMLLoader fxmlLoader = new FXMLLoader();
-
-            fxmlLoader.setLocation(getClass().getResource("hovedLayout.fxml"));
-
-            Parent hovedLayout = fxmlLoader.load();
-
-            Scene hovedScene = new Scene(hovedLayout);
-
-            primaryStage.setScene(hovedScene);
-
-            primaryStage.show();
-
-*/
             scene = new Scene(loadFXML("hovedLayout"));
             primaryStage.setScene(scene);
             primaryStage.show();
