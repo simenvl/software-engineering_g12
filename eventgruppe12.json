@@ -30,5 +30,37 @@
     "place": "Fredrikstad",
     "price": 50,
     "participants": []
+  },
+  {
+    "description": "Skøyterace",
+    "managerId": 654321,
+    "title": "Skøyterace",
+    "date": {
+      "year": 2021,
+      "month": 11,
+      "day": 21
+    },
+    "time": 1900,
+    "capacity": 500,
+    "ageRestrict": 16,
+    "place": "Moss",
+    "price": 100,
+    "participants": []
+  },
+  {
+    "description": "fotballkamp",
+    "managerId": 123456,
+    "title": "Fotballkamp",
+    "date": {
+      "year": 2021,
+      "month": 11,
+      "day": 26
+    },
+    "time": 1800,
+    "capacity": 10000,
+    "ageRestrict": 0,
+    "place": "Bergen",
+    "price": 200,
+    "participants": []
   }
 ]
