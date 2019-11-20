@@ -52,7 +52,7 @@ public class CreateUserController {
 
     }
 
-    public void createUser(ActionEvent actionEvent) {
+    public void createUser(ActionEvent actionEvent) throws IOException {
         if (name.getText().isEmpty() && email.getText().isEmpty()) {
             System.out.println("Empty");
 
@@ -63,11 +63,15 @@ public class CreateUserController {
                 case "0":
                     Manager newManager = new Manager("Admin", name.getText(), birthDay, email.getText(), 998877);
                     database.addAdmin(newManager);
+                    MainJavaFX.setCurrentPerson(newManager, true);
+                    MainJavaFX.setRoot("HovedLayout");
                     break;
                 case "1":
                     User newUser = new User(name.getText(), birthDay, email.getText(), 998877);
                     System.out.println("ID : " + newUser.getId());
                     database.addUser(newUser);
+                    MainJavaFX.setCurrentPerson(newUser, false);
+                    MainJavaFX.setRoot("HovedLayout");
                     break;
             }
 
