@@ -10,10 +10,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="270.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gruppe.TicketController">
+<AnchorPane prefHeight="270.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gruppe.TicketController">
     <VBox alignment="CENTER" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <HBox alignment="CENTER">
-            <Label fx:id="eventTitle" alignment="CENTER" layoutX="413.0" layoutY="28.0" prefHeight="34.0" text="Test">
+            <Label fx:id="eventTitle" alignment="CENTER" layoutX="413.0" layoutY="28.0" prefHeight="34.0" text="Buy Ticket">
                 <font>
                     <Font size="24.0" />
                 </font>
@@ -79,7 +79,7 @@
         </HBox>
       <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
-              <Button fx:id="buy" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Buy" onAction="#btnBuyEvent" />
+              <Button fx:id="buy" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBuyEvent" text="Buy" />
             <Button fx:id="cancelBuyTicketBtn" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToHovedLayout" text="Cancel" />
          </children>
       </HBox>

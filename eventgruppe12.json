@@ -48,7 +48,7 @@
     "participants": []
   },
   {
-    "description": "fotballkamp",
+    "description": "fotballkamp finale",
     "managerId": 123456,
     "title": "Fotballkamp",
     "date": {
@@ -57,10 +57,39 @@
       "day": 26
     },
     "time": 1800,
-    "capacity": 10000,
+    "capacity": 9998,
     "ageRestrict": 0,
     "place": "Bergen",
     "price": 200,
-    "participants": []
+    "participants": [
+      {
+        "rankNumber": 0,
+        "participantNumber": 0,
+        "name": "Omar C",
+        "id": 173007,
+        "birthDate": {
+          "year": 1990,
+          "month": 5,
+          "day": 6
+        },
+        "age": 0,
+        "email": "test@hiof.no",
+        "phone": 99887766
+      },
+      {
+        "rankNumber": 0,
+        "participantNumber": 2,
+        "name": "Quang L",
+        "id": 173006,
+        "birthDate": {
+          "year": 1990,
+          "month": 3,
+          "day": 4
+        },
+        "age": 0,
+        "email": "test@hiof.no",
+        "phone": 99887766
+      }
+    ]
   }
 ]
