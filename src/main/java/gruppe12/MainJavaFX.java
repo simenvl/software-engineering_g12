@@ -64,10 +64,6 @@ public class MainJavaFX extends Application {
         return fxmlLoader.load();
     }
 
-    public static  MainJavaFX getInstance(){
-        return mainJavaFX;
-    }
-
 
     public static void setCurrentPerson(Person currentUser, boolean currentUserRole){
         MainJavaFX.currentUser = currentUser;

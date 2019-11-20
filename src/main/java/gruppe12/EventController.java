@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import gruppe12.Data.DataHandler;
 import gruppe12.Json.WriteJson;
@@ -42,6 +43,8 @@ public class EventController {
     private TextField timeOfEvent;
     @FXML
     private TextArea txtDescription;
+    @FXML
+    private VBox VBOXParticipants;
 
 
     private Event eventToBeEdited;
@@ -85,6 +88,14 @@ public class EventController {
                 }
             }
         });
+
+        if (MainJavaFX.getSelectedEvent() != null)
+            setEventToBeEdited(MainJavaFX.getSelectedEvent());
+        else {
+            VBOXParticipants.setDisable(true);
+            VBOXParticipants.setVisible(false);
+            VBOXParticipants.setManaged(false);
+        }
 
     }
 
