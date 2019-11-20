@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gruppe.EventController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/9.0.4" fx:controller="gruppe.EventController">
    <children>
       <HBox prefHeight="578.0" prefWidth="719.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
           <padding><Insets left="20" right="20" top="20" /></padding>
