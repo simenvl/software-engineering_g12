@@ -1,6 +1,6 @@
-import gruppe12.Data.ServiceStubs;
-import gruppe12.Model.Event;
-import gruppe12.Model.*;
+import gruppe.Data.ServiceStubs;
+import gruppe.Model.Event;
+import gruppe.Model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

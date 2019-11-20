@@ -319,6 +319,21 @@
     "ageRestrict": 0,
     "place": "Her",
     "price": 0,
-    "participants": []
+    "participants": [
+      {
+        "rankNumber": 0,
+        "participantNumber": 0,
+        "name": "Thomas C",
+        "id": 173178,
+        "birthDate": {
+          "year": 1990,
+          "month": 1,
+          "day": 2
+        },
+        "age": 0,
+        "email": "test@hiof.no",
+        "phone": 99887766
+      }
+    ]
   }
 ]

@@ -1,8 +1,8 @@
-module gruppe12 {
+module gruppe {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.google.gson;
 
-    opens gruppe12 to javafx.fxml;
-    exports gruppe12;
+    opens gruppe to javafx.fxml;
+    exports gruppe;
 }

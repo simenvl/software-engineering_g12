@@ -1,13 +1,10 @@
 
-import gruppe12.HovedLayoutController;
-import gruppe12.Data.DataHandler;
-import gruppe12.Json.WriteJson;
-import gruppe12.MainJavaFX;
-import gruppe12.Model.User;
-import gruppe12.Model.Event;
+import gruppe.HovedLayoutController;
+import gruppe.Data.DataHandler;
+import gruppe.Model.User;
+import gruppe.Model.Event;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
