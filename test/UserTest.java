@@ -13,13 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class UserTest {
     static ServiceStubs database = new ServiceStubs();
     static Event newEvent;
-    static ArrayList<Manager> newManager;
     static ArrayList<User> newUsers;
 
     @BeforeAll
     public static void init(){
         database.initialize();
-        newManager = database.getAdmins();
         newUsers = database.getUsers();
         newEvent = new Event("Ski", LocalDate.now(), 123456, 10, "Fredrikstad", 10, "This is a ski-run", 10, 10);
     }

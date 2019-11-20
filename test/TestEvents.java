@@ -62,4 +62,12 @@ class TestEvents {
         Assertions.assertEquals(0, eventTime);
     }
 
+    @Test
+    void parseStringInsteadOfIntegerExpectedException() {
+
+        Assertions.assertThrows(NumberFormatException.class, () -> {
+            Integer.parseInt("ten");
+        });
+    }
+
 }

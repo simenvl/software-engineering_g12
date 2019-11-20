@@ -56,4 +56,6 @@ public class ManagerTest {
         assertEquals(0, event.getCapacity());
     }
 
+
+
 }
