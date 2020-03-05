@@ -1,2 +1,3 @@
-# software-engineering_g12
+# Registreingsystem 
+For lokale og mindre eventer
  
